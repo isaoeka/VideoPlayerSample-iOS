@@ -169,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				1964773C2173114600DFE555 /* Common */,
+				1964776C2173906B00DFE555 /* CustomViews */,
 				1964773921730F5400DFE555 /* Scene */,
 			);
 			path = Views;
@@ -197,7 +198,6 @@
 		1964773A21730F6400DFE555 /* VideoList */ = {
 			isa = PBXGroup;
 			children = (
-				19647752217337D800DFE555 /* Cell */,
 				1964770321722AF400DFE555 /* VideoList.storyboard */,
 				1964770121722AF400DFE555 /* VideoListViewController.swift */,
 				1964775021732DFC00DFE555 /* VideoListPresenter.swift */,
@@ -248,13 +248,13 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		19647752217337D800DFE555 /* Cell */ = {
+		19647752217337D800DFE555 /* VideoCell */ = {
 			isa = PBXGroup;
 			children = (
 				196477532173380900DFE555 /* VideoCell.swift */,
 				196477542173380900DFE555 /* VideoCell.xib */,
 			);
-			path = Cell;
+			path = VideoCell;
 			sourceTree = "<group>";
 		};
 		1964775721733D5B00DFE555 /* Extensions */ = {
@@ -272,6 +272,22 @@
 				1964775C2173458900DFE555 /* Applicable.swift */,
 			);
 			path = Protocoles;
+			sourceTree = "<group>";
+		};
+		1964776C2173906B00DFE555 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				19647752217337D800DFE555 /* VideoCell */,
+				1964776D217390B000DFE555 /* PlayerView */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		1964776D217390B000DFE555 /* PlayerView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PlayerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
