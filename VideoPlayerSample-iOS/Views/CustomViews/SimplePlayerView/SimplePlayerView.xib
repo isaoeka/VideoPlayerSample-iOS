@@ -13,13 +13,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SimplePlayerView" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
             <connections>
                 <outlet property="closeButton" destination="hOR-BL-aDM" id="Dxw-3m-mEw"/>
+                <outlet property="controlView" destination="UYW-vm-IyK" id="rTj-1g-Msc"/>
                 <outlet property="currentTimeLabel" destination="3wp-Gr-S66" id="JO0-g7-oVw"/>
                 <outlet property="durationLabel" destination="1MZ-s7-Kbn" id="95H-Ca-7ey"/>
                 <outlet property="fullScreenButton" destination="1s6-IH-LDf" id="QdX-TN-YXm"/>
                 <outlet property="playButton" destination="mu3-mI-EME" id="vTA-Lj-z5s"/>
                 <outlet property="playerView" destination="zbB-5h-MZy" id="H58-WE-iqS"/>
                 <outlet property="seekProgressSlider" destination="alI-Qh-n93" id="jsx-AX-L1h"/>
-                <outlet property="shadowView" destination="UYW-vm-IyK" id="WhB-Wf-RDW"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -30,8 +30,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbB-5h-MZy" userLabel="Player View">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYW-vm-IyK" userLabel="Shadow View">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYW-vm-IyK" userLabel="Control View">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOR-BL-aDM" userLabel="Close Button">
@@ -116,6 +117,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="zbB-5h-MZy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4bi-Uq-iqB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zbB-5h-MZy" secondAttribute="bottom" id="ERb-RZ-EsX"/>
@@ -128,7 +130,16 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="FjR-Xf-GMp" appends="YES" id="eM8-1o-6Jl"/>
+            </connections>
             <point key="canvasLocation" x="25.600000000000001" y="505.54722638680664"/>
         </view>
+        <tapGestureRecognizer id="FjR-Xf-GMp" userLabel="Player Tap Gesture Recognizer">
+            <connections>
+                <action selector="playerViewTapAction:" destination="-1" id="tfY-n7-ksq"/>
+                <outlet property="delegate" destination="zbB-5h-MZy" id="Zi6-z9-sZS"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

@@ -12,7 +12,7 @@ import FontAwesome
 
 class SimplePlayerView: UIView {
     @IBOutlet private weak var playerView: UIView!
-    @IBOutlet private weak var shadowView: UIView!
+    @IBOutlet private weak var controlView: UIView!
     @IBOutlet private weak var closeButton: UIButton! {
         didSet {
             let image = self.generateFontImage(name: .chevronDown, size: closeButton.frame.size)
@@ -121,6 +121,26 @@ class SimplePlayerView: UIView {
 
 // MARK: - IBActions
 extension SimplePlayerView {
+    @IBAction func playerViewTapAction(_ sender: UITapGestureRecognizer) {
+        if self.controlView.isHidden {
+            // show control view
+            UIView.animate(withDuration: 0.3, animations: {
+                self.controlView.alpha = 1.0
+            }) { isComplet in
+                guard isComplet else { return }
+                self.controlView.isHidden = false
+            }
+        } else {
+            // hide control view
+            UIView.animate(withDuration: 0.3, animations: {
+                self.controlView.alpha = 0
+            }) { isComplet in
+                guard isComplet else { return }
+                self.controlView.isHidden = true
+            }
+        }
+    }
+    
     @IBAction private func closeButtonAction(_ sender: UIButton) {
         self.player?.pause()
         self.closeCallback?()
