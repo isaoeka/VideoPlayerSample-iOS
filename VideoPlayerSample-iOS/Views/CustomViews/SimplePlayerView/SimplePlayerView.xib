@@ -18,6 +18,7 @@
                 <outlet property="fullScreenButton" destination="1s6-IH-LDf" id="QdX-TN-YXm"/>
                 <outlet property="playButton" destination="mu3-mI-EME" id="vTA-Lj-z5s"/>
                 <outlet property="playerView" destination="zbB-5h-MZy" id="H58-WE-iqS"/>
+                <outlet property="seekProgressSlider" destination="alI-Qh-n93" id="jsx-AX-L1h"/>
                 <outlet property="shadowView" destination="UYW-vm-IyK" id="WhB-Wf-RDW"/>
             </connections>
         </placeholder>
@@ -82,6 +83,15 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="alI-Qh-n93" userLabel="Seek Slider">
+                            <rect key="frame" x="6" y="205" width="468" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="MMS-UD-e8a"/>
+                            </constraints>
+                            <connections>
+                                <action selector="seekProgressChanged:" destination="-1" eventType="valueChanged" id="pZq-Bx-fQZ"/>
+                            </connections>
+                        </slider>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -94,6 +104,9 @@
                         <constraint firstAttribute="trailing" secondItem="1s6-IH-LDf" secondAttribute="trailing" constant="12" id="NXS-f1-hQS"/>
                         <constraint firstAttribute="bottom" secondItem="1s6-IH-LDf" secondAttribute="bottom" constant="12" id="aE4-lO-v6b"/>
                         <constraint firstItem="3wp-Gr-S66" firstAttribute="leading" secondItem="UYW-vm-IyK" secondAttribute="leading" constant="12" id="btT-Cx-EJd"/>
+                        <constraint firstItem="alI-Qh-n93" firstAttribute="leading" secondItem="UYW-vm-IyK" secondAttribute="leading" constant="8" id="ity-Sd-VcS"/>
+                        <constraint firstAttribute="bottom" secondItem="alI-Qh-n93" secondAttribute="bottom" constant="35" id="kA1-CR-jwe"/>
+                        <constraint firstAttribute="trailing" secondItem="alI-Qh-n93" secondAttribute="trailing" constant="8" id="rZ3-VU-lZG"/>
                         <constraint firstItem="hOR-BL-aDM" firstAttribute="top" secondItem="UYW-vm-IyK" secondAttribute="top" constant="12" id="rea-F4-IIh"/>
                     </constraints>
                 </view>
