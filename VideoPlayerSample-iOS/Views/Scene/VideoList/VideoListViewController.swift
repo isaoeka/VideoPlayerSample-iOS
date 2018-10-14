@@ -38,11 +38,9 @@ class VideoListViewController: UIViewController {
 
 // MARK: - VideoListView
 extension VideoListViewController: VideoListView {
-    
     func reloadData() {
         self.collectionView.reloadData()
     }
-    
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate

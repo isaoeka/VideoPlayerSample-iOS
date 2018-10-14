@@ -8,7 +8,7 @@
 import UIKit
 
 final class VideoPlayerPresenter {
-    typealias View = UIViewController
+    typealias View = VideoPlayerView & UIViewController
     
     private weak var view: View?
     private var video: Video
@@ -20,5 +20,9 @@ final class VideoPlayerPresenter {
     
     func getVideo() -> Video {
         return self.video
+    }
+
+    func dismiss() {
+        self.view?.dismissViewController()
     }
 }

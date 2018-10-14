@@ -9,6 +9,10 @@
 import AVFoundation
 import UIKit
 
+protocol VideoPlayerView: class {
+    func dismissViewController()
+}
+
 class VideoPlayerViewController: UIViewController {
     
     private var presenter: VideoPlayerPresenter!
@@ -33,7 +37,7 @@ class VideoPlayerViewController: UIViewController {
         let video = self.presenter.getVideo()
         if let url = URL(string: video.videoUrl ?? "") {
             let player = AVPlayer(url: url)
-            self.playerView.layer.addSublayer(AVPlayerLayer(player: player).apply {
+        self.playerView.layer.addSublayer(AVPlayerLayer(player: player).apply {
                 $0.frame = self.playerView.bounds
             })
             player.play()
@@ -46,4 +50,11 @@ class VideoPlayerViewController: UIViewController {
         self.descriptionLabel.text = video.description ?? ""
     }
     
+}
+
+// MARK: - VideoPlayerView
+extension VideoPlayerViewController: VideoPlayerView {
+    func dismissViewController() {
+        self.parent?.dismiss(animated: true)
+    }
 }
