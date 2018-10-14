@@ -36,6 +36,8 @@
 		19647771217392AE00DFE555 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19647770217392AE00DFE555 /* UIView.swift */; };
 		196477732173932D00DFE555 /* SimplePlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196477722173932D00DFE555 /* SimplePlayerView.xib */; };
 		196477752173B29600DFE555 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196477742173B29600DFE555 /* AVPlayer.swift */; };
+		196477782173D7E800DFE555 /* TimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196477772173D7E800DFE555 /* TimeLabel.swift */; };
+		1964777C2173DBCE00DFE555 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964777B2173DBCE00DFE555 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		19647770217392AE00DFE555 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		196477722173932D00DFE555 /* SimplePlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimplePlayerView.xib; sourceTree = "<group>"; };
 		196477742173B29600DFE555 /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
+		196477772173D7E800DFE555 /* TimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLabel.swift; sourceTree = "<group>"; };
+		1964777B2173DBCE00DFE555 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +276,7 @@
 				19647770217392AE00DFE555 /* UIView.swift */,
 				1964776221735A8500DFE555 /* UIViewController.swift */,
 				196477742173B29600DFE555 /* AVPlayer.swift */,
+				1964777B2173DBCE00DFE555 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 			children = (
 				19647752217337D800DFE555 /* VideoCell */,
 				1964776D217390B000DFE555 /* SimplePlayerView */,
+				196477762173D7C500DFE555 /* TimeLabel */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -300,6 +306,14 @@
 				196477722173932D00DFE555 /* SimplePlayerView.xib */,
 			);
 			path = SimplePlayerView;
+			sourceTree = "<group>";
+		};
+		196477762173D7C500DFE555 /* TimeLabel */ = {
+			isa = PBXGroup;
+			children = (
+				196477772173D7E800DFE555 /* TimeLabel.swift */,
+			);
+			path = TimeLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,9 +454,11 @@
 				1964776321735A8500DFE555 /* UIViewController.swift in Sources */,
 				19647747217328BF00DFE555 /* AppConst.swift in Sources */,
 				1964776A21736CBA00DFE555 /* VideoPlayerPresenter.swift in Sources */,
+				1964777C2173DBCE00DFE555 /* UIColor.swift in Sources */,
 				1964774B2173295500DFE555 /* Video.swift in Sources */,
 				1964776F2173919700DFE555 /* SimplePlayerView.swift in Sources */,
 				1964770221722AF400DFE555 /* VideoListViewController.swift in Sources */,
+				196477782173D7E800DFE555 /* TimeLabel.swift in Sources */,
 				196477552173380900DFE555 /* VideoCell.swift in Sources */,
 				19647771217392AE00DFE555 /* UIView.swift in Sources */,
 				1964775F217357A800DFE555 /* VideoPlayerViewController.swift in Sources */,

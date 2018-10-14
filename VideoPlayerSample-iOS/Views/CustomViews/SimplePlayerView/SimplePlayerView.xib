@@ -12,9 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SimplePlayerView" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
             <connections>
-                <outlet property="DurationLabel" destination="1MZ-s7-Kbn" id="ZJv-9x-xbn"/>
                 <outlet property="closeButton" destination="hOR-BL-aDM" id="Dxw-3m-mEw"/>
                 <outlet property="currentTimeLabel" destination="3wp-Gr-S66" id="JO0-g7-oVw"/>
+                <outlet property="durationLabel" destination="1MZ-s7-Kbn" id="95H-Ca-7ey"/>
                 <outlet property="fullScreenButton" destination="1s6-IH-LDf" id="QdX-TN-YXm"/>
                 <outlet property="playButton" destination="mu3-mI-EME" id="vTA-Lj-z5s"/>
                 <outlet property="playerView" destination="zbB-5h-MZy" id="H58-WE-iqS"/>
@@ -63,7 +63,7 @@
                                 <action selector="playButtonAction:" destination="-1" eventType="touchUpInside" id="7uX-SQ-6fT"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wp-Gr-S66" userLabel="Current Time Label">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wp-Gr-S66" userLabel="Current Time Label" customClass="TimeLabel" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
                             <rect key="frame" x="12" y="233" width="60" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="PRa-LD-fhP"/>
@@ -73,7 +73,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MZ-s7-Kbn" userLabel="Duration Label">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MZ-s7-Kbn" userLabel="Duration Label" customClass="TimeLabel" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
                             <rect key="frame" x="363" y="230.5" width="60" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="OPy-RP-Hux"/>

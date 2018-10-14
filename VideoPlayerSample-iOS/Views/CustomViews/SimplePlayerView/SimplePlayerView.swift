@@ -15,16 +15,8 @@ class SimplePlayerView: UIView {
     @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var fullScreenButton: UIButton!
     @IBOutlet private weak var playButton: UIButton!
-    @IBOutlet private weak var currentTimeLabel: UILabel! {
-        didSet {
-            currentTimeLabel.text = String(self.defaultValue)
-        }
-    }
-    @IBOutlet private weak var durationLabel: UILabel! {
-        didSet {
-            durationLabel.text = String(self.defaultValue)
-        }
-    }
+    @IBOutlet private weak var currentTimeLabel: TimeLabel!
+    @IBOutlet private weak var durationLabel: TimeLabel!
     @IBOutlet private weak var seekProgressSlider: UISlider! {
         didSet {
             seekProgressSlider.value = 0.0
@@ -33,7 +25,6 @@ class SimplePlayerView: UIView {
         }
     }
     
-    private let defaultValue: Int = 0
     private var player: AVPlayer?
     private var interval: Double {
         return Double(0.5 * self.seekProgressSlider.maximumValue) / Double(self.seekProgressSlider.bounds.maxX)
@@ -51,7 +42,7 @@ class SimplePlayerView: UIView {
             })
             self.player?.play()
             self.syncSeekSlider()
-            self.durationLabel.text = String(video?.videoDuration ?? 0)
+            self.durationLabel.msec = video?.videoDuration ?? 0
         }
     }
     
@@ -95,7 +86,7 @@ class SimplePlayerView: UIView {
             let duration = player.currentItem?.duration.seconds else { return }
         
         self.seekProgressSlider.value = Float(time.seconds / duration)
-        self.currentTimeLabel.text = String(time.seconds)
+        self.currentTimeLabel.msec = Int(time.seconds)
     }
     
     // MARK: - IBActions

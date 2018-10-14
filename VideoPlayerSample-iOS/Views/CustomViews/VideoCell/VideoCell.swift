@@ -13,7 +13,7 @@ class VideoCell: UICollectionViewCell {
     static let cellHeight: CGFloat = 200.0
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
-    @IBOutlet weak var videoDurationLabel: UILabel!
+    @IBOutlet weak var videoDurationLabel: TimeLabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var presenterNameLabel: UILabel!
@@ -24,7 +24,7 @@ class VideoCell: UICollectionViewCell {
             if let url = URL(string: video.thumbnailUrl ?? "") {
                 self.thumbnailImageView.kf.setImage(with: url)
             }
-            self.videoDurationLabel.text = String(video.videoDuration ?? 0)
+            self.videoDurationLabel.msec = video.videoDuration ?? 0
             self.titleLabel.text = video.title ?? ""
             self.descriptionLabel.text = video.description ?? ""
             self.presenterNameLabel.text = video.presenterName ?? "'"
