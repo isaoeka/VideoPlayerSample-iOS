@@ -26,12 +26,11 @@ class VideoListViewController: UIViewController {
     
     private func initializeView() {
         let nib = UINib(nibName: VideoCell.simpleClassName(), bundle: nil)
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: self.collectionView.frame.width, height: 150)
-        
         self.collectionView.register(nib, forCellWithReuseIdentifier: VideoCell.simpleClassName())
-        self.collectionView.collectionViewLayout = layout
+        self.collectionView.collectionViewLayout = UICollectionViewFlowLayout().apply {
+            $0.scrollDirection = .vertical
+            $0.itemSize = CGSize(width: self.collectionView.frame.width, height: 150)
+        }
         self.collectionView.dataSource = self
     }
 }
