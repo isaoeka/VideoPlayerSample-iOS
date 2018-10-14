@@ -120,13 +120,17 @@ class SimplePlayerView: UIView {
     }
 
     @IBAction private func seekProgressChanged(_ sender: UISlider) {
-        // TODO: update seek progress value
         guard let player = self.player,
             let duration = player.currentItem?.duration.seconds else { return }
 
         let seconds = Double(sender.value) * duration
         let targetTime: CMTime = CMTime(seconds: seconds, preferredTimescale: Int32(NSEC_PER_SEC))
         player.seek(to: targetTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
+        
+        // Case where playback has ended
+        if !player.isPlaying {
+            player.play()
+        }
     }
     
 }
