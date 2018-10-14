@@ -57,13 +57,17 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mu3-mI-EME" userLabel="Play Button">
-                            <rect key="frame" x="217" y="120" width="46" height="30"/>
-                            <state key="normal" title="Button"/>
+                            <rect key="frame" x="215" y="110" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="aWk-ol-esG"/>
+                                <constraint firstAttribute="height" constant="50" id="tUv-66-quU"/>
+                            </constraints>
+                            <state key="normal" title="Play"/>
                             <connections>
                                 <action selector="playButtonAction:" destination="-1" eventType="touchUpInside" id="7uX-SQ-6fT"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wp-Gr-S66" userLabel="Current Time Label" customClass="TimeLabel" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wp-Gr-S66" userLabel="Current Time Label" customClass="TimeLabel" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
                             <rect key="frame" x="12" y="233" width="60" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="PRa-LD-fhP"/>
@@ -73,7 +77,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MZ-s7-Kbn" userLabel="Duration Label" customClass="TimeLabel" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MZ-s7-Kbn" userLabel="Duration Label" customClass="TimeLabel" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
                             <rect key="frame" x="363" y="230.5" width="60" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="OPy-RP-Hux"/>

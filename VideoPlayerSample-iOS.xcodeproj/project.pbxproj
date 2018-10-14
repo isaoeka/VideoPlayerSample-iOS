@@ -167,6 +167,7 @@
 			children = (
 				1964770621722AF500DFE555 /* Assets.xcassets */,
 				1964770B21722AF500DFE555 /* Info.plist */,
+				196477812173F89900DFE555 /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -308,6 +309,13 @@
 				196477772173D7E800DFE555 /* TimeLabel.swift */,
 			);
 			path = TimeLabel;
+			sourceTree = "<group>";
+		};
+		196477812173F89900DFE555 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

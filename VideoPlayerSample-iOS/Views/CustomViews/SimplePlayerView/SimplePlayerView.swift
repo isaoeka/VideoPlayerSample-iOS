@@ -8,13 +8,32 @@
 
 import UIKit
 import AVFoundation
+import FontAwesome
 
 class SimplePlayerView: UIView {
     @IBOutlet private weak var playerView: UIView!
     @IBOutlet private weak var shadowView: UIView!
-    @IBOutlet private weak var closeButton: UIButton!
-    @IBOutlet private weak var fullScreenButton: UIButton!
-    @IBOutlet private weak var playButton: UIButton!
+    @IBOutlet private weak var closeButton: UIButton! {
+        didSet {
+            let image = self.generateFontImage(name: .chevronDown, size: closeButton.frame.size)
+            closeButton.setImage(image, for: .normal)
+            closeButton.setTitle("", for: .normal)
+        }
+    }
+    @IBOutlet private weak var fullScreenButton: UIButton! {
+        didSet {
+            let image = self.generateFontImage(name: .expand, size: fullScreenButton.frame.size)
+            fullScreenButton.setImage(image, for: .normal)
+            fullScreenButton.setTitle("", for: .normal)
+        }
+    }
+    @IBOutlet private weak var playButton: UIButton! {
+        didSet {
+            let image = self.generateFontImage(name: .pause, size: playButton.frame.size)
+            playButton.setImage(image, for: .normal)
+            playButton.setTitle("", for: .normal)
+        }
+    }
     @IBOutlet private weak var currentTimeLabel: TimeLabel!
     @IBOutlet private weak var durationLabel: TimeLabel!
     @IBOutlet private weak var seekProgressSlider: UISlider! {
@@ -25,6 +44,7 @@ class SimplePlayerView: UIView {
         }
     }
     
+    private let buttonColor = UIColor(100, 100, 100)
     private var player: AVPlayer?
     private var interval: Double {
         return Double(0.5 * self.seekProgressSlider.maximumValue) / Double(self.seekProgressSlider.bounds.maxX)
@@ -89,7 +109,18 @@ class SimplePlayerView: UIView {
         self.currentTimeLabel.msec = Int(time.seconds)
     }
     
-    // MARK: - IBActions
+    private func generateFontImage(name: FontAwesome, size: CGSize) -> UIImage {
+        return UIImage.fontAwesomeIcon(
+            name: name,
+            style: .solid,
+            textColor: .black,
+            size: size
+        )
+    }
+}
+
+// MARK: - IBActions
+extension SimplePlayerView {
     @IBAction private func closeButtonAction(_ sender: UIButton) {
         self.player?.pause()
         self.closeCallback?()
@@ -102,11 +133,13 @@ class SimplePlayerView: UIView {
     @IBAction private func playButtonAction(_ sender: UIButton) {
         guard let player = self.player else { return }
         if player.isPlaying {
+            let image = self.generateFontImage(name: .play, size: self.playButton.frame.size)
+            self.playButton.setImage(image, for: .normal)
             player.pause()
-            self.playButton.backgroundColor = .red
         } else {
+            let image = self.generateFontImage(name: .pause, size: self.playButton.frame.size)
+            self.playButton.setImage(image, for: .normal)
             player.play()
-            self.playButton.backgroundColor = .white
         }
     }
 
@@ -123,5 +156,4 @@ class SimplePlayerView: UIView {
             player.play()
         }
     }
-    
 }
