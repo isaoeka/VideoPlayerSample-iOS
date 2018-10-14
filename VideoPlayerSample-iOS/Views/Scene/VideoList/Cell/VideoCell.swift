@@ -7,21 +7,39 @@
 //
 
 import UIKit
+import Kingfisher
 
 class VideoCell: UICollectionViewCell {
+    static let cellHeight: CGFloat = 200.0
     
+    // TODO: Show title, thumbnail, description, presenter’s name
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var videoDurationLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var presenterNameLabel: UILabel!
+
     var video: Video? {
         didSet{
             guard let video = video else { return }
-            dump(video)
+            if let url = URL(string: video.thumbnailUrl ?? "") {
+                self.thumbnailImageView.kf.setImage(with: url)
+            }
+            self.videoDurationLabel.text = String(video.videoDuration ?? 0)
+            self.titleLabel.text = video.title ?? ""
+            self.descriptionLabel.text = video.description ?? ""
+            self.presenterNameLabel.text = video.presenterName ?? "'"
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
-        self.backgroundColor = .gray
+        self.initializeView()
     }
-
+    
+    private func initializeView() {
+        self.backgroundColor = .white
+        
+    }
 }

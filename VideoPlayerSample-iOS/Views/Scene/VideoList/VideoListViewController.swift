@@ -29,7 +29,7 @@ class VideoListViewController: UIViewController {
         self.collectionView.register(nib, forCellWithReuseIdentifier: VideoCell.simpleClassName())
         self.collectionView.collectionViewLayout = UICollectionViewFlowLayout().apply {
             $0.scrollDirection = .vertical
-            $0.itemSize = CGSize(width: self.collectionView.frame.width, height: 150)
+            $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.cellHeight)
         }
         self.collectionView.dataSource = self
     }
