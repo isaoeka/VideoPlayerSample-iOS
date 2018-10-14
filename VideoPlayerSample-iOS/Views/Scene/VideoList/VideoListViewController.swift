@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  VideoListViewController.swift
 //  VideoPlayerSample-iOS
 //
 //  Created by isaoeka on 2018/10/13.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class VideoListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
 
-
 }
-

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1964770021722AF400DFE555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196476FF21722AF400DFE555 /* AppDelegate.swift */; };
-		1964770221722AF400DFE555 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964770121722AF400DFE555 /* ViewController.swift */; };
+		1964770221722AF400DFE555 /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964770121722AF400DFE555 /* VideoListViewController.swift */; };
 		1964770521722AF400DFE555 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1964770321722AF400DFE555 /* Main.storyboard */; };
 		1964770721722AF500DFE555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1964770621722AF500DFE555 /* Assets.xcassets */; };
 		1964770A21722AF500DFE555 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1964770821722AF500DFE555 /* LaunchScreen.storyboard */; };
@@ -35,7 +35,7 @@
 /* Begin PBXFileReference section */
 		196476FC21722AF400DFE555 /* VideoPlayerSample-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VideoPlayerSample-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		196476FF21722AF400DFE555 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1964770121722AF400DFE555 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1964770121722AF400DFE555 /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
 		1964770421722AF400DFE555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1964770621722AF500DFE555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1964770921722AF500DFE555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,12 +99,10 @@
 		196476FE21722AF400DFE555 /* VideoPlayerSample-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				196476FF21722AF400DFE555 /* AppDelegate.swift */,
-				1964770121722AF400DFE555 /* ViewController.swift */,
-				1964770321722AF400DFE555 /* Main.storyboard */,
-				1964770621722AF500DFE555 /* Assets.xcassets */,
-				1964770821722AF500DFE555 /* LaunchScreen.storyboard */,
-				1964770B21722AF500DFE555 /* Info.plist */,
+				196477342172424600DFE555 /* Resources */,
+				1964773821730D7D00DFE555 /* Common */,
+				1964773621730D4800DFE555 /* Views */,
+				1964773721730D6300DFE555 /* Models */,
 			);
 			path = "VideoPlayerSample-iOS";
 			sourceTree = "<group>";
@@ -130,6 +128,72 @@
 				196477242172331000DFE555 /* ReSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		196477342172424600DFE555 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1964770621722AF500DFE555 /* Assets.xcassets */,
+				1964770B21722AF500DFE555 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1964773621730D4800DFE555 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1964773C2173114600DFE555 /* Common */,
+				1964773921730F5400DFE555 /* Scene */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1964773721730D6300DFE555 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1964773821730D7D00DFE555 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				196476FF21722AF400DFE555 /* AppDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1964773921730F5400DFE555 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				1964773A21730F6400DFE555 /* VideoList */,
+				1964773B21730F7300DFE555 /* VideoPlayer */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		1964773A21730F6400DFE555 /* VideoList */ = {
+			isa = PBXGroup;
+			children = (
+				1964770121722AF400DFE555 /* VideoListViewController.swift */,
+			);
+			path = VideoList;
+			sourceTree = "<group>";
+		};
+		1964773B21730F7300DFE555 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		1964773C2173114600DFE555 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1964770821722AF500DFE555 /* LaunchScreen.storyboard */,
+				1964770321722AF400DFE555 /* Main.storyboard */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1964770221722AF400DFE555 /* ViewController.swift in Sources */,
+				1964770221722AF400DFE555 /* VideoListViewController.swift in Sources */,
 				1964770021722AF400DFE555 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,7 +495,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "VideoPlayerSample-iOS/Info.plist";
+				INFOPLIST_FILE = "VideoPlayerSample-iOS/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,7 +517,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "VideoPlayerSample-iOS/Info.plist";
+				INFOPLIST_FILE = "VideoPlayerSample-iOS/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,7 +535,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "VideoPlayerSample-iOSTests/Info.plist";
+				INFOPLIST_FILE = "VideoPlayerSample-iOSTests/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -491,7 +555,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "VideoPlayerSample-iOSTests/Info.plist";
+				INFOPLIST_FILE = "VideoPlayerSample-iOSTests/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
