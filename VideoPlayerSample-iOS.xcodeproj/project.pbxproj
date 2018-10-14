@@ -19,6 +19,7 @@
 		1964772A2172331100DFE555 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477232172331000DFE555 /* ObjectMapper.framework */; };
 		1964772C2172331100DFE555 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477252172331000DFE555 /* PromiseKit.framework */; };
 		1964772D2172331100DFE555 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477262172331000DFE555 /* Kingfisher.framework */; };
+		19647747217328BF00DFE555 /* AppConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19647746217328BF00DFE555 /* AppConst.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		196477242172331000DFE555 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
 		196477252172331000DFE555 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		196477262172331000DFE555 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		19647746217328BF00DFE555 /* AppConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConst.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +102,7 @@
 				196477342172424600DFE555 /* Resources */,
 				1964773821730D7D00DFE555 /* Common */,
 				1964773621730D4800DFE555 /* Views */,
-				1964773721730D6300DFE555 /* Models */,
+				196477452173285600DFE555 /* Models */,
 			);
 			path = "VideoPlayerSample-iOS";
 			sourceTree = "<group>";
@@ -146,16 +148,10 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1964773721730D6300DFE555 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		1964773821730D7D00DFE555 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				19647746217328BF00DFE555 /* AppConst.swift */,
 				196476FF21722AF400DFE555 /* AppDelegate.swift */,
 			);
 			path = Common;
@@ -192,6 +188,13 @@
 				1964770321722AF400DFE555 /* Main.storyboard */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		196477452173285600DFE555 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19647747217328BF00DFE555 /* AppConst.swift in Sources */,
 				1964770221722AF400DFE555 /* VideoListViewController.swift in Sources */,
 				1964770021722AF400DFE555 /* AppDelegate.swift in Sources */,
 			);
