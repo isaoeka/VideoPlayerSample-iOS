@@ -9,10 +9,17 @@
 import UIKit
 
 final class VideoListPresenter {
+    typealias View = VideoListView & UIViewController
+    
+    private weak var view: View?
     private var videoList: [Video] = []
     
     var numberOfVideo: Int {
         return self.videoList.count
+    }
+    
+    init(view: View) {
+        self.view = view
     }
 
     func video(at index: Int) -> Video? {
@@ -23,7 +30,7 @@ final class VideoListPresenter {
     func getVideoList() {
         VideoAPI.getList { result in
             defer {
-                // TODO: Refresh tableview
+                self.view?.reloadData()
             }
             self.videoList = result
         }

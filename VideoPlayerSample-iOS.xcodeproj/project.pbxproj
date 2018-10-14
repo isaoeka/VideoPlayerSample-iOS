@@ -23,6 +23,9 @@
 		1964774B2173295500DFE555 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964774A2173295500DFE555 /* Video.swift */; };
 		1964774F21732A7A00DFE555 /* VideoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964774E21732A7A00DFE555 /* VideoAPI.swift */; };
 		1964775121732DFC00DFE555 /* VideoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964775021732DFC00DFE555 /* VideoListPresenter.swift */; };
+		196477552173380900DFE555 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196477532173380900DFE555 /* VideoCell.swift */; };
+		196477562173380900DFE555 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196477542173380900DFE555 /* VideoCell.xib */; };
+		1964775921733D7900DFE555 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964775821733D7900DFE555 /* NSObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		1964774A2173295500DFE555 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		1964774E21732A7A00DFE555 /* VideoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPI.swift; sourceTree = "<group>"; };
 		1964775021732DFC00DFE555 /* VideoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListPresenter.swift; sourceTree = "<group>"; };
+		196477532173380900DFE555 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		196477542173380900DFE555 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		1964775821733D7900DFE555 /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,7 @@
 		1964773821730D7D00DFE555 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1964775721733D5B00DFE555 /* Extensions */,
 				19647746217328BF00DFE555 /* AppConst.swift */,
 				196476FF21722AF400DFE555 /* AppDelegate.swift */,
 			);
@@ -175,6 +182,7 @@
 		1964773A21730F6400DFE555 /* VideoList */ = {
 			isa = PBXGroup;
 			children = (
+				19647752217337D800DFE555 /* Cell */,
 				1964770321722AF400DFE555 /* VideoList.storyboard */,
 				1964770121722AF400DFE555 /* VideoListViewController.swift */,
 				1964775021732DFC00DFE555 /* VideoListPresenter.swift */,
@@ -220,6 +228,23 @@
 				1964774E21732A7A00DFE555 /* VideoAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		19647752217337D800DFE555 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				196477532173380900DFE555 /* VideoCell.swift */,
+				196477542173380900DFE555 /* VideoCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1964775721733D5B00DFE555 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1964775821733D7900DFE555 /* NSObject.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +331,7 @@
 			files = (
 				1964770A21722AF500DFE555 /* LaunchScreen.storyboard in Resources */,
 				1964770721722AF500DFE555 /* Assets.xcassets in Resources */,
+				196477562173380900DFE555 /* VideoCell.xib in Resources */,
 				1964770521722AF400DFE555 /* VideoList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,9 +378,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1964774F21732A7A00DFE555 /* VideoAPI.swift in Sources */,
+				1964775921733D7900DFE555 /* NSObject.swift in Sources */,
 				19647747217328BF00DFE555 /* AppConst.swift in Sources */,
 				1964774B2173295500DFE555 /* Video.swift in Sources */,
 				1964770221722AF400DFE555 /* VideoListViewController.swift in Sources */,
+				196477552173380900DFE555 /* VideoCell.swift in Sources */,
 				1964775121732DFC00DFE555 /* VideoListPresenter.swift in Sources */,
 				1964770021722AF400DFE555 /* AppDelegate.swift in Sources */,
 			);
