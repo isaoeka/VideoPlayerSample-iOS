@@ -64,9 +64,9 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wp-Gr-S66" userLabel="Current Time Label">
-                            <rect key="frame" x="12" y="233" width="40" height="25"/>
+                            <rect key="frame" x="12" y="233" width="60" height="25"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="40" id="PRa-LD-fhP"/>
+                                <constraint firstAttribute="width" constant="60" id="PRa-LD-fhP"/>
                                 <constraint firstAttribute="height" constant="25" id="RMO-BW-T50"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -74,9 +74,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MZ-s7-Kbn" userLabel="Duration Label">
-                            <rect key="frame" x="378" y="230.5" width="40" height="25"/>
+                            <rect key="frame" x="363" y="230.5" width="60" height="25"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="40" id="OPy-RP-Hux"/>
+                                <constraint firstAttribute="width" constant="60" id="OPy-RP-Hux"/>
                                 <constraint firstAttribute="height" constant="25" id="V9F-LP-CkC"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -99,7 +99,7 @@
                         <constraint firstItem="mu3-mI-EME" firstAttribute="centerX" secondItem="UYW-vm-IyK" secondAttribute="centerX" id="6dG-0R-YZy"/>
                         <constraint firstAttribute="bottom" secondItem="3wp-Gr-S66" secondAttribute="bottom" constant="12" id="Cbu-14-hJm"/>
                         <constraint firstItem="hOR-BL-aDM" firstAttribute="leading" secondItem="UYW-vm-IyK" secondAttribute="leading" constant="12" id="G9E-Bz-Rjn"/>
-                        <constraint firstItem="1s6-IH-LDf" firstAttribute="leading" secondItem="1MZ-s7-Kbn" secondAttribute="trailing" constant="20" id="Iv5-KL-enw"/>
+                        <constraint firstItem="1s6-IH-LDf" firstAttribute="leading" secondItem="1MZ-s7-Kbn" secondAttribute="trailing" constant="15" id="Iv5-KL-enw"/>
                         <constraint firstItem="1MZ-s7-Kbn" firstAttribute="centerY" secondItem="1s6-IH-LDf" secondAttribute="centerY" id="Mqe-J0-7LP"/>
                         <constraint firstAttribute="trailing" secondItem="1s6-IH-LDf" secondAttribute="trailing" constant="12" id="NXS-f1-hQS"/>
                         <constraint firstAttribute="bottom" secondItem="1s6-IH-LDf" secondAttribute="bottom" constant="12" id="aE4-lO-v6b"/>

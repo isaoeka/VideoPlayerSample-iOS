@@ -15,8 +15,16 @@ class SimplePlayerView: UIView {
     @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var fullScreenButton: UIButton!
     @IBOutlet private weak var playButton: UIButton!
-    @IBOutlet private weak var currentTimeLabel: UILabel!
-    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var currentTimeLabel: UILabel! {
+        didSet {
+            currentTimeLabel.text = String(self.defaultValue)
+        }
+    }
+    @IBOutlet private weak var durationLabel: UILabel! {
+        didSet {
+            durationLabel.text = String(self.defaultValue)
+        }
+    }
     @IBOutlet private weak var seekProgressSlider: UISlider! {
         didSet {
             seekProgressSlider.value = 0.0
@@ -25,6 +33,7 @@ class SimplePlayerView: UIView {
         }
     }
     
+    private let defaultValue: Int = 0
     private var player: AVPlayer?
     private var interval: Double {
         return Double(0.5 * self.seekProgressSlider.maximumValue) / Double(self.seekProgressSlider.bounds.maxX)
@@ -42,6 +51,7 @@ class SimplePlayerView: UIView {
             })
             self.player?.play()
             self.syncSeekSlider()
+            self.durationLabel.text = String(video?.videoDuration ?? 0)
         }
     }
     
@@ -61,6 +71,7 @@ class SimplePlayerView: UIView {
     
     deinit {
         self.player?.pause()
+        // TODO: remove time ovserver
     }
     
     private func loadFromNib() {
@@ -68,14 +79,7 @@ class SimplePlayerView: UIView {
         if let view = Bundle(for: type(of: self)).loadNibNamed(className, owner: self, options: nil)?.first as? UIView {
             self.addSubview(view)
             view.fillConstraint(to: self)
-            self.initializeView()
         }
-    }
-    
-    private func initializeView() {
-        self.backgroundColor = .white
-        // Play on the back
-        self.sendSubviewToBack(self.playerView)
     }
     
     private func syncSeekSlider() {
@@ -91,6 +95,7 @@ class SimplePlayerView: UIView {
             let duration = player.currentItem?.duration.seconds else { return }
         
         self.seekProgressSlider.value = Float(time.seconds / duration)
+        self.currentTimeLabel.text = String(time.seconds)
     }
     
     // MARK: - IBActions
@@ -120,7 +125,7 @@ class SimplePlayerView: UIView {
             let duration = player.currentItem?.duration.seconds else { return }
 
         let seconds = Double(sender.value) * duration
-        let targetTime: CMTime = CMTime(seconds: seconds, preferredTimescale: Int32(NSEC_PER_SEC))        
+        let targetTime: CMTime = CMTime(seconds: seconds, preferredTimescale: Int32(NSEC_PER_SEC))
         player.seek(to: targetTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
     }
     
