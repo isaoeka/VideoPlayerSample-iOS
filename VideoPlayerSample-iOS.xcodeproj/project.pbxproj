@@ -27,6 +27,9 @@
 		196477562173380900DFE555 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196477542173380900DFE555 /* VideoCell.xib */; };
 		1964775921733D7900DFE555 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964775821733D7900DFE555 /* NSObject.swift */; };
 		1964775D2173458900DFE555 /* Applicable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964775C2173458900DFE555 /* Applicable.swift */; };
+		1964775F217357A800DFE555 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964775E217357A800DFE555 /* VideoPlayerViewController.swift */; };
+		19647761217357B400DFE555 /* VideoPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19647760217357B400DFE555 /* VideoPlayer.storyboard */; };
+		1964776321735A8500DFE555 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964776221735A8500DFE555 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		196477542173380900DFE555 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		1964775821733D7900DFE555 /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		1964775C2173458900DFE555 /* Applicable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicable.swift; sourceTree = "<group>"; };
+		1964775E217357A800DFE555 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		19647760217357B400DFE555 /* VideoPlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
+		1964776221735A8500DFE555 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +202,8 @@
 		1964773B21730F7300DFE555 /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				19647760217357B400DFE555 /* VideoPlayer.storyboard */,
+				1964775E217357A800DFE555 /* VideoPlayerViewController.swift */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -246,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				1964775821733D7900DFE555 /* NSObject.swift */,
+				1964776221735A8500DFE555 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -344,6 +353,7 @@
 				1964770721722AF500DFE555 /* Assets.xcassets in Resources */,
 				196477562173380900DFE555 /* VideoCell.xib in Resources */,
 				1964770521722AF400DFE555 /* VideoList.storyboard in Resources */,
+				19647761217357B400DFE555 /* VideoPlayer.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,10 +401,12 @@
 				1964774F21732A7A00DFE555 /* VideoAPI.swift in Sources */,
 				1964775921733D7900DFE555 /* NSObject.swift in Sources */,
 				1964775D2173458900DFE555 /* Applicable.swift in Sources */,
+				1964776321735A8500DFE555 /* UIViewController.swift in Sources */,
 				19647747217328BF00DFE555 /* AppConst.swift in Sources */,
 				1964774B2173295500DFE555 /* Video.swift in Sources */,
 				1964770221722AF400DFE555 /* VideoListViewController.swift in Sources */,
 				196477552173380900DFE555 /* VideoCell.swift in Sources */,
+				1964775F217357A800DFE555 /* VideoPlayerViewController.swift in Sources */,
 				1964775121732DFC00DFE555 /* VideoListPresenter.swift in Sources */,
 				1964770021722AF400DFE555 /* AppDelegate.swift in Sources */,
 			);

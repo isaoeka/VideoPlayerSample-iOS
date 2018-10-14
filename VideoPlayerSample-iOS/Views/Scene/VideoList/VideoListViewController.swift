@@ -20,7 +20,6 @@ class VideoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initializeView()
-        
         self.presenter.getVideoList()
     }
     
@@ -31,19 +30,24 @@ class VideoListViewController: UIViewController {
             $0.scrollDirection = .vertical
             $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.cellHeight)
         }
+        self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
+    
 }
 
 // MARK: - VideoListView
 extension VideoListViewController: VideoListView {
+    
     func reloadData() {
         self.collectionView.reloadData()
     }
+    
 }
 
-// MARK: - UICollectionViewDataSource
-extension VideoListViewController: UICollectionViewDataSource {
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
+extension VideoListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.presenter.numberOfVideo
     }
@@ -55,4 +59,14 @@ extension VideoListViewController: UICollectionViewDataSource {
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let viewController = UIStoryboard(name: VideoPlayerViewController.storyBoradName(), bundle: nil).instantiateInitialViewController() else {
+            return
+        }
+        self.present(viewController, animated: true) {
+            print("aaaaaaaaaaaaaaa")
+        }
+    }
+    
 }
