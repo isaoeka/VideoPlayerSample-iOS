@@ -13,6 +13,9 @@ class VideoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        VideoAPI.getList { videoList in
+            dump(videoList)
+        }
     }
 
 }
