@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1964770021722AF400DFE555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196476FF21722AF400DFE555 /* AppDelegate.swift */; };
-		1964770221722AF400DFE555 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964770121722AF400DFE555 /* ViewController.swift */; };
-		1964770521722AF400DFE555 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1964770321722AF400DFE555 /* Main.storyboard */; };
+		1964770221722AF400DFE555 /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964770121722AF400DFE555 /* VideoListViewController.swift */; };
+		1964770521722AF400DFE555 /* VideoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1964770321722AF400DFE555 /* VideoList.storyboard */; };
 		1964770721722AF500DFE555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1964770621722AF500DFE555 /* Assets.xcassets */; };
 		1964770A21722AF500DFE555 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1964770821722AF500DFE555 /* LaunchScreen.storyboard */; };
 		1964771521722AF500DFE555 /* VideoPlayerSample_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964771421722AF500DFE555 /* VideoPlayerSample_iOSTests.swift */; };
@@ -17,9 +17,27 @@
 		196477282172331100DFE555 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477212172331000DFE555 /* Alamofire.framework */; };
 		196477292172331100DFE555 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477222172331000DFE555 /* PMKAlamofire.framework */; };
 		1964772A2172331100DFE555 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477232172331000DFE555 /* ObjectMapper.framework */; };
-		1964772B2172331100DFE555 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477242172331000DFE555 /* ReSwift.framework */; };
 		1964772C2172331100DFE555 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477252172331000DFE555 /* PromiseKit.framework */; };
 		1964772D2172331100DFE555 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477262172331000DFE555 /* Kingfisher.framework */; };
+		19647747217328BF00DFE555 /* AppConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19647746217328BF00DFE555 /* AppConst.swift */; };
+		1964774B2173295500DFE555 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964774A2173295500DFE555 /* Video.swift */; };
+		1964774F21732A7A00DFE555 /* VideoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964774E21732A7A00DFE555 /* VideoAPI.swift */; };
+		1964775121732DFC00DFE555 /* VideoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964775021732DFC00DFE555 /* VideoListPresenter.swift */; };
+		196477552173380900DFE555 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196477532173380900DFE555 /* VideoCell.swift */; };
+		196477562173380900DFE555 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196477542173380900DFE555 /* VideoCell.xib */; };
+		1964775921733D7900DFE555 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964775821733D7900DFE555 /* NSObject.swift */; };
+		1964775D2173458900DFE555 /* Applicable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964775C2173458900DFE555 /* Applicable.swift */; };
+		1964775F217357A800DFE555 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964775E217357A800DFE555 /* VideoPlayerViewController.swift */; };
+		19647761217357B400DFE555 /* VideoPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19647760217357B400DFE555 /* VideoPlayer.storyboard */; };
+		1964776321735A8500DFE555 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964776221735A8500DFE555 /* UIViewController.swift */; };
+		1964776521736AF800DFE555 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1964776421736AF800DFE555 /* AVFoundation.framework */; };
+		1964776A21736CBA00DFE555 /* VideoPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964776921736CBA00DFE555 /* VideoPlayerPresenter.swift */; };
+		1964776F2173919700DFE555 /* SimplePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964776E2173919700DFE555 /* SimplePlayerView.swift */; };
+		19647771217392AE00DFE555 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19647770217392AE00DFE555 /* UIView.swift */; };
+		196477732173932D00DFE555 /* SimplePlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196477722173932D00DFE555 /* SimplePlayerView.xib */; };
+		196477752173B29600DFE555 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196477742173B29600DFE555 /* AVPlayer.swift */; };
+		196477782173D7E800DFE555 /* TimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196477772173D7E800DFE555 /* TimeLabel.swift */; };
+		1964777C2173DBCE00DFE555 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964777B2173DBCE00DFE555 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +53,8 @@
 /* Begin PBXFileReference section */
 		196476FC21722AF400DFE555 /* VideoPlayerSample-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VideoPlayerSample-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		196476FF21722AF400DFE555 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1964770121722AF400DFE555 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1964770421722AF400DFE555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1964770121722AF400DFE555 /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
+		1964770421722AF400DFE555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VideoList.storyboard; sourceTree = "<group>"; };
 		1964770621722AF500DFE555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1964770921722AF500DFE555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1964770B21722AF500DFE555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +68,25 @@
 		196477242172331000DFE555 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
 		196477252172331000DFE555 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		196477262172331000DFE555 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		19647746217328BF00DFE555 /* AppConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConst.swift; sourceTree = "<group>"; };
+		1964774A2173295500DFE555 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		1964774E21732A7A00DFE555 /* VideoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPI.swift; sourceTree = "<group>"; };
+		1964775021732DFC00DFE555 /* VideoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListPresenter.swift; sourceTree = "<group>"; };
+		196477532173380900DFE555 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		196477542173380900DFE555 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		1964775821733D7900DFE555 /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		1964775C2173458900DFE555 /* Applicable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicable.swift; sourceTree = "<group>"; };
+		1964775E217357A800DFE555 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		19647760217357B400DFE555 /* VideoPlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
+		1964776221735A8500DFE555 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		1964776421736AF800DFE555 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1964776921736CBA00DFE555 /* VideoPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerPresenter.swift; sourceTree = "<group>"; };
+		1964776E2173919700DFE555 /* SimplePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePlayerView.swift; sourceTree = "<group>"; };
+		19647770217392AE00DFE555 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		196477722173932D00DFE555 /* SimplePlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimplePlayerView.xib; sourceTree = "<group>"; };
+		196477742173B29600DFE555 /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
+		196477772173D7E800DFE555 /* TimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLabel.swift; sourceTree = "<group>"; };
+		1964777B2173DBCE00DFE555 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +94,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1964776521736AF800DFE555 /* AVFoundation.framework in Frameworks */,
 				196477272172331100DFE555 /* AlamofireObjectMapper.framework in Frameworks */,
 				196477282172331100DFE555 /* Alamofire.framework in Frameworks */,
 				196477292172331100DFE555 /* PMKAlamofire.framework in Frameworks */,
 				1964772A2172331100DFE555 /* ObjectMapper.framework in Frameworks */,
-				1964772B2172331100DFE555 /* ReSwift.framework in Frameworks */,
 				1964772C2172331100DFE555 /* PromiseKit.framework in Frameworks */,
 				1964772D2172331100DFE555 /* Kingfisher.framework in Frameworks */,
 			);
@@ -99,12 +136,10 @@
 		196476FE21722AF400DFE555 /* VideoPlayerSample-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				196476FF21722AF400DFE555 /* AppDelegate.swift */,
-				1964770121722AF400DFE555 /* ViewController.swift */,
-				1964770321722AF400DFE555 /* Main.storyboard */,
-				1964770621722AF500DFE555 /* Assets.xcassets */,
-				1964770821722AF500DFE555 /* LaunchScreen.storyboard */,
-				1964770B21722AF500DFE555 /* Info.plist */,
+				196477342172424600DFE555 /* Resources */,
+				1964773821730D7D00DFE555 /* Common */,
+				1964773621730D4800DFE555 /* Views */,
+				196477452173285600DFE555 /* Models */,
 			);
 			path = "VideoPlayerSample-iOS";
 			sourceTree = "<group>";
@@ -121,6 +156,7 @@
 		1964771F2172331000DFE555 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1964776421736AF800DFE555 /* AVFoundation.framework */,
 				196477212172331000DFE555 /* Alamofire.framework */,
 				196477202172331000DFE555 /* AlamofireObjectMapper.framework */,
 				196477262172331000DFE555 /* Kingfisher.framework */,
@@ -130,6 +166,154 @@
 				196477242172331000DFE555 /* ReSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		196477342172424600DFE555 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1964770621722AF500DFE555 /* Assets.xcassets */,
+				1964770B21722AF500DFE555 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1964773621730D4800DFE555 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1964773C2173114600DFE555 /* Common */,
+				1964776C2173906B00DFE555 /* CustomViews */,
+				1964773921730F5400DFE555 /* Scene */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1964773821730D7D00DFE555 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				19647746217328BF00DFE555 /* AppConst.swift */,
+				196476FF21722AF400DFE555 /* AppDelegate.swift */,
+				1964775B2173456200DFE555 /* Protocoles */,
+				1964775721733D5B00DFE555 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1964773921730F5400DFE555 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				1964773A21730F6400DFE555 /* VideoList */,
+				1964773B21730F7300DFE555 /* VideoPlayer */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		1964773A21730F6400DFE555 /* VideoList */ = {
+			isa = PBXGroup;
+			children = (
+				1964770321722AF400DFE555 /* VideoList.storyboard */,
+				1964770121722AF400DFE555 /* VideoListViewController.swift */,
+				1964775021732DFC00DFE555 /* VideoListPresenter.swift */,
+			);
+			path = VideoList;
+			sourceTree = "<group>";
+		};
+		1964773B21730F7300DFE555 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				19647760217357B400DFE555 /* VideoPlayer.storyboard */,
+				1964775E217357A800DFE555 /* VideoPlayerViewController.swift */,
+				1964776921736CBA00DFE555 /* VideoPlayerPresenter.swift */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		1964773C2173114600DFE555 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1964770821722AF500DFE555 /* LaunchScreen.storyboard */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		196477452173285600DFE555 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				196477482173293300DFE555 /* Entity */,
+				196477492173293E00DFE555 /* API */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		196477482173293300DFE555 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1964774A2173295500DFE555 /* Video.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		196477492173293E00DFE555 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1964774E21732A7A00DFE555 /* VideoAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		19647752217337D800DFE555 /* VideoCell */ = {
+			isa = PBXGroup;
+			children = (
+				196477532173380900DFE555 /* VideoCell.swift */,
+				196477542173380900DFE555 /* VideoCell.xib */,
+			);
+			path = VideoCell;
+			sourceTree = "<group>";
+		};
+		1964775721733D5B00DFE555 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1964775821733D7900DFE555 /* NSObject.swift */,
+				19647770217392AE00DFE555 /* UIView.swift */,
+				1964776221735A8500DFE555 /* UIViewController.swift */,
+				196477742173B29600DFE555 /* AVPlayer.swift */,
+				1964777B2173DBCE00DFE555 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1964775B2173456200DFE555 /* Protocoles */ = {
+			isa = PBXGroup;
+			children = (
+				1964775C2173458900DFE555 /* Applicable.swift */,
+			);
+			path = Protocoles;
+			sourceTree = "<group>";
+		};
+		1964776C2173906B00DFE555 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				19647752217337D800DFE555 /* VideoCell */,
+				1964776D217390B000DFE555 /* SimplePlayerView */,
+				196477762173D7C500DFE555 /* TimeLabel */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		1964776D217390B000DFE555 /* SimplePlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				1964776E2173919700DFE555 /* SimplePlayerView.swift */,
+				196477722173932D00DFE555 /* SimplePlayerView.xib */,
+			);
+			path = SimplePlayerView;
+			sourceTree = "<group>";
+		};
+		196477762173D7C500DFE555 /* TimeLabel */ = {
+			isa = PBXGroup;
+			children = (
+				196477772173D7E800DFE555 /* TimeLabel.swift */,
+			);
+			path = TimeLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,7 +400,10 @@
 			files = (
 				1964770A21722AF500DFE555 /* LaunchScreen.storyboard in Resources */,
 				1964770721722AF500DFE555 /* Assets.xcassets in Resources */,
-				1964770521722AF400DFE555 /* Main.storyboard in Resources */,
+				196477562173380900DFE555 /* VideoCell.xib in Resources */,
+				1964770521722AF400DFE555 /* VideoList.storyboard in Resources */,
+				196477732173932D00DFE555 /* SimplePlayerView.xib in Resources */,
+				19647761217357B400DFE555 /* VideoPlayer.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +431,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReSwift.framework",
 			);
 			name = "Run Script : Carthage";
 			outputFileListPaths = (
@@ -262,8 +448,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1964770221722AF400DFE555 /* ViewController.swift in Sources */,
+				1964774F21732A7A00DFE555 /* VideoAPI.swift in Sources */,
+				1964775921733D7900DFE555 /* NSObject.swift in Sources */,
+				1964775D2173458900DFE555 /* Applicable.swift in Sources */,
+				1964776321735A8500DFE555 /* UIViewController.swift in Sources */,
+				19647747217328BF00DFE555 /* AppConst.swift in Sources */,
+				1964776A21736CBA00DFE555 /* VideoPlayerPresenter.swift in Sources */,
+				1964777C2173DBCE00DFE555 /* UIColor.swift in Sources */,
+				1964774B2173295500DFE555 /* Video.swift in Sources */,
+				1964776F2173919700DFE555 /* SimplePlayerView.swift in Sources */,
+				1964770221722AF400DFE555 /* VideoListViewController.swift in Sources */,
+				196477782173D7E800DFE555 /* TimeLabel.swift in Sources */,
+				196477552173380900DFE555 /* VideoCell.swift in Sources */,
+				19647771217392AE00DFE555 /* UIView.swift in Sources */,
+				1964775F217357A800DFE555 /* VideoPlayerViewController.swift in Sources */,
+				1964775121732DFC00DFE555 /* VideoListPresenter.swift in Sources */,
 				1964770021722AF400DFE555 /* AppDelegate.swift in Sources */,
+				196477752173B29600DFE555 /* AVPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,12 +487,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1964770321722AF400DFE555 /* Main.storyboard */ = {
+		1964770321722AF400DFE555 /* VideoList.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1964770421722AF400DFE555 /* Base */,
 			);
-			name = Main.storyboard;
+			name = VideoList.storyboard;
 			sourceTree = "<group>";
 		};
 		1964770821722AF500DFE555 /* LaunchScreen.storyboard */ = {
@@ -356,7 +557,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -411,7 +612,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -431,7 +632,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "VideoPlayerSample-iOS/Info.plist";
+				INFOPLIST_FILE = "VideoPlayerSample-iOS/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,7 +654,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "VideoPlayerSample-iOS/Info.plist";
+				INFOPLIST_FILE = "VideoPlayerSample-iOS/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,7 +672,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "VideoPlayerSample-iOSTests/Info.plist";
+				INFOPLIST_FILE = "VideoPlayerSample-iOSTests/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -491,7 +692,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "VideoPlayerSample-iOSTests/Info.plist";
+				INFOPLIST_FILE = "VideoPlayerSample-iOSTests/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
