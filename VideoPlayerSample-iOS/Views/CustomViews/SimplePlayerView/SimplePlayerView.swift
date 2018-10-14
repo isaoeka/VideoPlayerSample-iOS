@@ -76,5 +76,13 @@ class SimplePlayerView: UIView {
     }
     
     @IBAction private func playButtonAction(_ sender: UIButton) {
+        guard let player = self.player else { return }
+        if player.isPlaying {
+            player.pause()
+            self.playButton.backgroundColor = .red
+        } else {
+            player.play()
+            self.playButton.backgroundColor = .white
+        }
     }
 }
