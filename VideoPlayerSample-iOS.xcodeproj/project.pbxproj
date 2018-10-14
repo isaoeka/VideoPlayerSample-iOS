@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1964770021722AF400DFE555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196476FF21722AF400DFE555 /* AppDelegate.swift */; };
 		1964770221722AF400DFE555 /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964770121722AF400DFE555 /* VideoListViewController.swift */; };
-		1964770521722AF400DFE555 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1964770321722AF400DFE555 /* Main.storyboard */; };
+		1964770521722AF400DFE555 /* VideoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1964770321722AF400DFE555 /* VideoList.storyboard */; };
 		1964770721722AF500DFE555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1964770621722AF500DFE555 /* Assets.xcassets */; };
 		1964770A21722AF500DFE555 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1964770821722AF500DFE555 /* LaunchScreen.storyboard */; };
 		1964771521722AF500DFE555 /* VideoPlayerSample_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964771421722AF500DFE555 /* VideoPlayerSample_iOSTests.swift */; };
@@ -22,6 +22,7 @@
 		19647747217328BF00DFE555 /* AppConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19647746217328BF00DFE555 /* AppConst.swift */; };
 		1964774B2173295500DFE555 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964774A2173295500DFE555 /* Video.swift */; };
 		1964774F21732A7A00DFE555 /* VideoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964774E21732A7A00DFE555 /* VideoAPI.swift */; };
+		1964775121732DFC00DFE555 /* VideoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964775021732DFC00DFE555 /* VideoListPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 		196476FC21722AF400DFE555 /* VideoPlayerSample-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VideoPlayerSample-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		196476FF21722AF400DFE555 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1964770121722AF400DFE555 /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
-		1964770421722AF400DFE555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1964770421722AF400DFE555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VideoList.storyboard; sourceTree = "<group>"; };
 		1964770621722AF500DFE555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1964770921722AF500DFE555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1964770B21722AF500DFE555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		19647746217328BF00DFE555 /* AppConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConst.swift; sourceTree = "<group>"; };
 		1964774A2173295500DFE555 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		1964774E21732A7A00DFE555 /* VideoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAPI.swift; sourceTree = "<group>"; };
+		1964775021732DFC00DFE555 /* VideoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +175,9 @@
 		1964773A21730F6400DFE555 /* VideoList */ = {
 			isa = PBXGroup;
 			children = (
+				1964770321722AF400DFE555 /* VideoList.storyboard */,
 				1964770121722AF400DFE555 /* VideoListViewController.swift */,
+				1964775021732DFC00DFE555 /* VideoListPresenter.swift */,
 			);
 			path = VideoList;
 			sourceTree = "<group>";
@@ -189,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				1964770821722AF500DFE555 /* LaunchScreen.storyboard */,
-				1964770321722AF400DFE555 /* Main.storyboard */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -303,7 +306,7 @@
 			files = (
 				1964770A21722AF500DFE555 /* LaunchScreen.storyboard in Resources */,
 				1964770721722AF500DFE555 /* Assets.xcassets in Resources */,
-				1964770521722AF400DFE555 /* Main.storyboard in Resources */,
+				1964770521722AF400DFE555 /* VideoList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +355,7 @@
 				19647747217328BF00DFE555 /* AppConst.swift in Sources */,
 				1964774B2173295500DFE555 /* Video.swift in Sources */,
 				1964770221722AF400DFE555 /* VideoListViewController.swift in Sources */,
+				1964775121732DFC00DFE555 /* VideoListPresenter.swift in Sources */,
 				1964770021722AF400DFE555 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,12 +379,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1964770321722AF400DFE555 /* Main.storyboard */ = {
+		1964770321722AF400DFE555 /* VideoList.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1964770421722AF400DFE555 /* Base */,
 			);
-			name = Main.storyboard;
+			name = VideoList.storyboard;
 			sourceTree = "<group>";
 		};
 		1964770821722AF500DFE555 /* LaunchScreen.storyboard */ = {

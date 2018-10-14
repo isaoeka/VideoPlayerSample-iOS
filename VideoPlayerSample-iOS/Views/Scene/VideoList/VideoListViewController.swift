@@ -9,13 +9,12 @@
 import UIKit
 
 class VideoListViewController: UIViewController {
+    private lazy var presenter = VideoListPresenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        VideoAPI.getList { videoList in
-            dump(videoList)
-        }
+        self.presenter.getVideoList()
     }
 
 }

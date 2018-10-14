@@ -13,9 +13,9 @@ struct VideoAPI {
     
     static func getList(completion: @escaping ([Video]) -> Void) {
         Alamofire.request(AppConst.ApiUrl.videoList.rawValue).responseArray { (response: DataResponse<[Video]>) in
-            if let videoArray = response.result.value {
-                completion(videoArray)
-            }
+            // TODO: Error handling
+            let videoList = response.result.value ?? []
+            completion(videoList)
         }
     }
     
