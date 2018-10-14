@@ -17,7 +17,6 @@
 		196477282172331100DFE555 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477212172331000DFE555 /* Alamofire.framework */; };
 		196477292172331100DFE555 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477222172331000DFE555 /* PMKAlamofire.framework */; };
 		1964772A2172331100DFE555 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477232172331000DFE555 /* ObjectMapper.framework */; };
-		1964772B2172331100DFE555 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477242172331000DFE555 /* ReSwift.framework */; };
 		1964772C2172331100DFE555 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477252172331000DFE555 /* PromiseKit.framework */; };
 		1964772D2172331100DFE555 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196477262172331000DFE555 /* Kingfisher.framework */; };
 /* End PBXBuildFile section */
@@ -61,7 +60,6 @@
 				196477282172331100DFE555 /* Alamofire.framework in Frameworks */,
 				196477292172331100DFE555 /* PMKAlamofire.framework in Frameworks */,
 				1964772A2172331100DFE555 /* ObjectMapper.framework in Frameworks */,
-				1964772B2172331100DFE555 /* ReSwift.framework in Frameworks */,
 				1964772C2172331100DFE555 /* PromiseKit.framework in Frameworks */,
 				1964772D2172331100DFE555 /* Kingfisher.framework in Frameworks */,
 			);
@@ -308,7 +306,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReSwift.framework",
 			);
 			name = "Run Script : Carthage";
 			outputFileListPaths = (
