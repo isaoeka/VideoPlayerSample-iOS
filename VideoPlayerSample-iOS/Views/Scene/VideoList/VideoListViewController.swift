@@ -61,12 +61,14 @@ extension VideoListViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let viewController = UIStoryboard(name: VideoPlayerViewController.storyBoradName(), bundle: nil).instantiateInitialViewController() else {
+        guard let video = self.presenter.video(at: indexPath.row),
+            let viewController = UIStoryboard(name: VideoPlayerViewController.storyBoradName(), bundle: nil).instantiateInitialViewController() as? VideoPlayerViewController else {
             return
         }
-        self.present(viewController, animated: true) {
-            print("aaaaaaaaaaaaaaa")
-        }
+    
+        // TODO: maybe redone to factory pattern
+        viewController.createPresenter(withVideo: video)
+        self.present(viewController, animated: true)
     }
     
 }

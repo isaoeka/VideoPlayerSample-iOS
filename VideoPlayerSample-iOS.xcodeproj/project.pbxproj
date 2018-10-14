@@ -30,6 +30,8 @@
 		1964775F217357A800DFE555 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964775E217357A800DFE555 /* VideoPlayerViewController.swift */; };
 		19647761217357B400DFE555 /* VideoPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19647760217357B400DFE555 /* VideoPlayer.storyboard */; };
 		1964776321735A8500DFE555 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964776221735A8500DFE555 /* UIViewController.swift */; };
+		1964776521736AF800DFE555 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1964776421736AF800DFE555 /* AVFoundation.framework */; };
+		1964776A21736CBA00DFE555 /* VideoPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1964776921736CBA00DFE555 /* VideoPlayerPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		1964775E217357A800DFE555 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		19647760217357B400DFE555 /* VideoPlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
 		1964776221735A8500DFE555 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		1964776421736AF800DFE555 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1964776921736CBA00DFE555 /* VideoPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1964776521736AF800DFE555 /* AVFoundation.framework in Frameworks */,
 				196477272172331100DFE555 /* AlamofireObjectMapper.framework in Frameworks */,
 				196477282172331100DFE555 /* Alamofire.framework in Frameworks */,
 				196477292172331100DFE555 /* PMKAlamofire.framework in Frameworks */,
@@ -139,6 +144,7 @@
 		1964771F2172331000DFE555 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1964776421736AF800DFE555 /* AVFoundation.framework */,
 				196477212172331000DFE555 /* Alamofire.framework */,
 				196477202172331000DFE555 /* AlamofireObjectMapper.framework */,
 				196477262172331000DFE555 /* Kingfisher.framework */,
@@ -171,10 +177,10 @@
 		1964773821730D7D00DFE555 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				1964775B2173456200DFE555 /* Protocoles */,
-				1964775721733D5B00DFE555 /* Extensions */,
 				19647746217328BF00DFE555 /* AppConst.swift */,
 				196476FF21722AF400DFE555 /* AppDelegate.swift */,
+				1964775B2173456200DFE555 /* Protocoles */,
+				1964775721733D5B00DFE555 /* Extensions */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 			children = (
 				19647760217357B400DFE555 /* VideoPlayer.storyboard */,
 				1964775E217357A800DFE555 /* VideoPlayerViewController.swift */,
+				1964776921736CBA00DFE555 /* VideoPlayerPresenter.swift */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -403,6 +410,7 @@
 				1964775D2173458900DFE555 /* Applicable.swift in Sources */,
 				1964776321735A8500DFE555 /* UIViewController.swift in Sources */,
 				19647747217328BF00DFE555 /* AppConst.swift in Sources */,
+				1964776A21736CBA00DFE555 /* VideoPlayerPresenter.swift in Sources */,
 				1964774B2173295500DFE555 /* Video.swift in Sources */,
 				1964770221722AF400DFE555 /* VideoListViewController.swift in Sources */,
 				196477552173380900DFE555 /* VideoCell.swift in Sources */,

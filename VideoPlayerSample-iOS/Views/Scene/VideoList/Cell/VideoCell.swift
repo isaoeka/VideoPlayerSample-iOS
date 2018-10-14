@@ -12,7 +12,6 @@ import Kingfisher
 class VideoCell: UICollectionViewCell {
     static let cellHeight: CGFloat = 200.0
     
-    // TODO: Show title, thumbnail, description, presenter’s name
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var videoDurationLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
