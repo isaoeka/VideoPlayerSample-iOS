@@ -10,8 +10,12 @@ import UIKit
 import Kingfisher
 
 class VideoCell: UICollectionViewCell {
-    static let cellHeight: CGFloat = 200.0
-    
+    static let itemSizeRatio: CGFloat = 16.0 / 9.0
+    static func cellHeight() -> CGFloat {
+        let width = UIScreen.main.bounds.size.width
+        return width / VideoCell.itemSizeRatio
+    }
+
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var videoDurationLabel: TimeLabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -39,6 +43,5 @@ class VideoCell: UICollectionViewCell {
     
     private func initializeView() {
         self.backgroundColor = .white
-        
     }
 }

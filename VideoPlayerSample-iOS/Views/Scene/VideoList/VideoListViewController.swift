@@ -28,10 +28,12 @@ class VideoListViewController: UIViewController {
         self.collectionView.register(nib, forCellWithReuseIdentifier: VideoCell.simpleClassName())
         self.collectionView.collectionViewLayout = UICollectionViewFlowLayout().apply {
             $0.scrollDirection = .vertical
-            $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.cellHeight)
+            $0.minimumLineSpacing = 1
+            $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.cellHeight() + 50)
         }
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.backgroundColor = .lightGray
     }
     
 }
