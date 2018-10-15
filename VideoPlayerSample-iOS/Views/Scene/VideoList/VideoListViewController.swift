@@ -23,6 +23,10 @@ class VideoListViewController: UIViewController {
         self.presenter.getVideoList()
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     private func initializeView() {
         let nib = UINib(nibName: VideoCell.simpleClassName(), bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: VideoCell.simpleClassName())

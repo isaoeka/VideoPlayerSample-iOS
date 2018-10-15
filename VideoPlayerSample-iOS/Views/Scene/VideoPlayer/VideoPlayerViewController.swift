@@ -26,6 +26,24 @@ class VideoPlayerViewController: UIViewController {
         self.initializeView()
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait, .landscape]
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if size.width > size.height {
+            print ("to Landscape")
+        } else {
+            print ("to Portrait")
+        }
+    }
+}
+
+extension VideoPlayerViewController {
     func createPresenter(withVideo video: Video) {
         self.presenter = VideoPlayerPresenter(view: self, video: video)
     }
@@ -41,7 +59,6 @@ class VideoPlayerViewController: UIViewController {
         self.presenterNameLabel.text = video.presenterName ?? ""
         self.descriptionLabel.text = video.description ?? ""
     }
-    
 }
 
 // MARK: - VideoPlayerView
