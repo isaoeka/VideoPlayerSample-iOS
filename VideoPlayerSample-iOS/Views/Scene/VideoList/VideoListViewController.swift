@@ -40,7 +40,6 @@ class VideoListViewController: UIViewController {
         self.collectionView.dataSource = self
         self.collectionView.backgroundColor = .lightGray
     }
-    
 }
 
 // MARK: - VideoListView
@@ -75,5 +74,4 @@ extension VideoListViewController: UICollectionViewDataSource, UICollectionViewD
         viewController.createPresenter(withVideo: video)
         self.present(viewController, animated: true)
     }
-    
 }

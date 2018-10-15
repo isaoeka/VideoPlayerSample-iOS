@@ -84,7 +84,7 @@ class SimplePlayerView: UIView {
         super.layoutSubviews()
     }
 }
-    
+
 extension SimplePlayerView {
     private func loadFromNib() {
         let className = SimplePlayerView.simpleClassName()

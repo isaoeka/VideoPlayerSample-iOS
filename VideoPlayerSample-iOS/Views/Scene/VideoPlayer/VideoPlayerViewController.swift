@@ -20,7 +20,7 @@ class VideoPlayerViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
 
     private var presenter: VideoPlayerPresenter!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initializeView()
@@ -32,7 +32,6 @@ class VideoPlayerViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
