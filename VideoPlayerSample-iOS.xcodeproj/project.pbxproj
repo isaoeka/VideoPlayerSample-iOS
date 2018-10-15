@@ -176,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				1964773C2173114600DFE555 /* Common */,
-				1964776C2173906B00DFE555 /* CustomViews */,
 				1964773921730F5400DFE555 /* Scene */,
 			);
 			path = Views;
@@ -226,6 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				1964770821722AF500DFE555 /* LaunchScreen.storyboard */,
+				19647752217337D800DFE555 /* VideoCell */,
+				1964776D217390B000DFE555 /* SimplePlayerView */,
+				196477762173D7C500DFE555 /* TimeLabel */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -282,16 +284,6 @@
 				1964775C2173458900DFE555 /* Applicable.swift */,
 			);
 			path = Protocoles;
-			sourceTree = "<group>";
-		};
-		1964776C2173906B00DFE555 /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				19647752217337D800DFE555 /* VideoCell */,
-				1964776D217390B000DFE555 /* SimplePlayerView */,
-				196477762173D7C500DFE555 /* TimeLabel */,
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		1964776D217390B000DFE555 /* SimplePlayerView */ = {
