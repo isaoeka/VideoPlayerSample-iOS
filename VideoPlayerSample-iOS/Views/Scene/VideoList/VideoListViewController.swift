@@ -13,10 +13,10 @@ protocol VideoListView: class {
 }
 
 class VideoListViewController: UIViewController {
-    
-    private lazy var presenter = VideoListPresenter(view: self)
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
+    private lazy var presenter = VideoListPresenter(view: self)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initializeView()

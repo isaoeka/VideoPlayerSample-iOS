@@ -14,12 +14,12 @@ protocol VideoPlayerView: class {
 }
 
 class VideoPlayerViewController: UIViewController {
-    
-    private var presenter: VideoPlayerPresenter!
     @IBOutlet weak var playerView: SimplePlayerView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var presenterNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+
+    private var presenter: VideoPlayerPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +29,14 @@ class VideoPlayerViewController: UIViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return [.portrait, .landscape]
     }
-
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        // Support only iphone
         if size.width > size.height {
             print ("to Landscape")
         } else {
@@ -50,7 +52,6 @@ extension VideoPlayerViewController {
     
     private func initializeView() {
         let video = self.presenter.getVideo()
-        
         self.playerView.video = video
         self.playerView.closeCallback = {
             self.dismissViewController()
