@@ -29,7 +29,8 @@ class VideoListViewController: UIViewController {
         self.collectionView.collectionViewLayout = UICollectionViewFlowLayout().apply {
             $0.scrollDirection = .vertical
             $0.minimumLineSpacing = 1
-            $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.cellHeight() + 50)
+            $0.estimatedItemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.estimatedCellHeight())
+            $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.estimatedCellHeight())
         }
         self.collectionView.delegate = self
         self.collectionView.dataSource = self

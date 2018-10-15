@@ -11,7 +11,7 @@ import Kingfisher
 
 class VideoCell: UICollectionViewCell {
     static let itemSizeRatio: CGFloat = 16.0 / 9.0
-    static func cellHeight() -> CGFloat {
+    static func estimatedCellHeight() -> CGFloat {
         let width = UIScreen.main.bounds.size.width
         return width / VideoCell.itemSizeRatio
     }
@@ -44,4 +44,17 @@ class VideoCell: UICollectionViewCell {
     private func initializeView() {
         self.backgroundColor = .white
     }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        return super.preferredLayoutAttributesFitting(layoutAttributes).apply {
+            let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
+            let autoLayoutSize = self.contentView.systemLayoutSizeFitting(
+                targetSize,
+                withHorizontalFittingPriority: UILayoutPriority.required,
+                verticalFittingPriority: UILayoutPriority.defaultLow
+            )
+            $0.frame = CGRect(origin: $0.frame.origin, size: autoLayoutSize)
+        }
+    }
+    
 }
