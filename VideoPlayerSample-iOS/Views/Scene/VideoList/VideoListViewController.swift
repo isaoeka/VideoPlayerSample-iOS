@@ -13,14 +13,18 @@ protocol VideoListView: class {
 }
 
 class VideoListViewController: UIViewController {
-    
-    private lazy var presenter = VideoListPresenter(view: self)
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
+    private lazy var presenter = VideoListPresenter(view: self)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initializeView()
         self.presenter.getVideoList()
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
     
     private func initializeView() {
@@ -28,12 +32,14 @@ class VideoListViewController: UIViewController {
         self.collectionView.register(nib, forCellWithReuseIdentifier: VideoCell.simpleClassName())
         self.collectionView.collectionViewLayout = UICollectionViewFlowLayout().apply {
             $0.scrollDirection = .vertical
-            $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.cellHeight)
+            $0.minimumLineSpacing = 1
+            $0.estimatedItemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.estimatedCellHeight())
+            $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.estimatedCellHeight())
         }
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.backgroundColor = .lightGray
     }
-    
 }
 
 // MARK: - VideoListView
@@ -68,5 +74,4 @@ extension VideoListViewController: UICollectionViewDataSource, UICollectionViewD
         viewController.createPresenter(withVideo: video)
         self.present(viewController, animated: true)
     }
-    
 }

@@ -18,13 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hf0-1k-wEN" userLabel="Simple Player View" customClass="SimplePlayerView" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="211"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Hf0-1k-wEN" secondAttribute="height" multiplier="16:9" id="TaY-bl-cEZ"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKl-G1-evL" userLabel="Title Label">
                                 <rect key="frame" x="16" y="242" width="208" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -46,19 +39,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hf0-1k-wEN" userLabel="Simple Player View" customClass="SimplePlayerView" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="211"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hf0-1k-wEN" secondAttribute="height" multiplier="16:9" id="TaY-bl-cEZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="A4L-jp-TyM" firstAttribute="trailing" secondItem="Hf0-1k-wEN" secondAttribute="trailing" id="5wr-C6-PFb"/>
                             <constraint firstItem="Hf0-1k-wEN" firstAttribute="top" secondItem="A4L-jp-TyM" secondAttribute="top" id="C8l-lb-xSZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Hf0-1k-wEN" secondAttribute="bottom" id="oDy-Yd-zpt"/>
                             <constraint firstItem="Hf0-1k-wEN" firstAttribute="leading" secondItem="A4L-jp-TyM" secondAttribute="leading" id="z3k-we-Kdn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A4L-jp-TyM"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="oDy-Yd-zpt"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="Euw-9X-TfW" id="dSw-uh-pnz"/>
-                        <outlet property="playerView" destination="Hf0-1k-wEN" id="SqB-Bf-SJ2"/>
                         <outlet property="presenterNameLabel" destination="eZV-xG-9fH" id="5E1-xb-Dtc"/>
+                        <outlet property="simplePlayerView" destination="Hf0-1k-wEN" id="288-iK-NLd"/>
+                        <outlet property="simplePlayerViewBottomAnker" destination="oDy-Yd-zpt" id="Xjr-U7-ebW"/>
+                        <outlet property="simplePlayerViewRatio" destination="TaY-bl-cEZ" id="aS5-CG-mck"/>
                         <outlet property="titleLabel" destination="UKl-G1-evL" id="wpe-Kv-mjw"/>
                     </connections>
                 </viewController>
