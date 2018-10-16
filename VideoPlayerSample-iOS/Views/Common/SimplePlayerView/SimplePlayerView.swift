@@ -63,7 +63,7 @@ class SimplePlayerView: UIView {
     
     // MARK: Callbacks
     var closeCallback: (() -> Void)? = nil
-    var fullscreenCallback: (() -> Void)? = nil
+    var fullscreenCallback: (() -> CGRect?)? = nil // TODO: rename to expand ~
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,6 +91,13 @@ extension SimplePlayerView {
         if let view = Bundle(for: type(of: self)).loadNibNamed(className, owner: self, options: nil)?.first as? UIView {
             self.addSubview(view)
             view.fillConstraint(to: self)
+        }
+    }
+    
+    func updateLayoutForOrientation(_ fullScreenRect: CGRect? = nil) {
+        self.playerView.layer.frame = fullScreenRect ?? self.bounds
+        self.playerView.layer.sublayers?.forEach { subLayer in
+            subLayer.frame = fullScreenRect ?? self.bounds
         }
     }
     
@@ -141,7 +148,11 @@ extension SimplePlayerView {
     }
     
     @IBAction private func fullscreenButtonAction(_ sender: UIButton) {
-        self.fullscreenCallback?()
+        let expandViewRect = self.fullscreenCallback?()
+        // Update view layout
+        self.controlView.frame = expandViewRect ?? self.frame
+        // Update layer layout
+        self.updateLayoutForOrientation(expandViewRect)
     }
     
     @IBAction private func playButtonAction(_ sender: UIButton) {

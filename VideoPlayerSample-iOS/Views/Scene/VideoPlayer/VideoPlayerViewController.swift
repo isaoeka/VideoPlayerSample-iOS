@@ -13,6 +13,11 @@ protocol VideoPlayerView: class {
     func dismissViewController()
 }
 
+enum VideoPlayerStyle {
+    case standard
+    case fullscreen
+}
+
 class VideoPlayerViewController: UIViewController {
     @IBOutlet weak var playerView: SimplePlayerView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,27 +25,29 @@ class VideoPlayerViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
 
     private var presenter: VideoPlayerPresenter!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.initializeView()
-    }
+    var playerStyle = VideoPlayerStyle.standard
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return [.portrait, .landscape]
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override var prefersStatusBarHidden: Bool {
+        // Hide if fullscreen
+        return self.playerStyle == .fullscreen
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        // Support only iphone
-        if size.width > size.height {
-            print ("to Landscape")
-        } else {
-            print ("to Portrait")
-        }
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.initializeView()
+    }
+
+    override func viewDidLayoutSubviews() {
+        self.playerView.updateLayoutForOrientation()
+        super.viewDidLayoutSubviews()
     }
 }
 
@@ -52,12 +59,31 @@ extension VideoPlayerViewController {
     private func initializeView() {
         let video = self.presenter.getVideo()
         self.playerView.video = video
-        self.playerView.closeCallback = {
-            self.dismissViewController()
-        }
         self.titleLabel.text = video.title ?? ""
         self.presenterNameLabel.text = video.presenterName ?? ""
         self.descriptionLabel.text = video.description ?? ""
+        
+        self.playerView.closeCallback = {
+            self.dismissViewController()
+        }
+        self.playerView.fullscreenCallback = {
+            self.playerStyle = .fullscreen
+            // update status bar
+            UIView.animate(withDuration: 0.3) {
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+            return self.fullscreenRect()
+        }
+    }
+    
+    private func fullscreenRect() -> CGRect {
+        let screenBounds = UIScreen.main.bounds
+        switch self.playerStyle {
+        case .standard:
+            return CGRect(x: 0, y: 0, width: screenBounds.width, height: screenBounds.height)
+        case .fullscreen:
+            return CGRect(x: 0, y: 0, width: screenBounds.width, height: screenBounds.height)
+        }
     }
 }
 
