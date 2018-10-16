@@ -97,17 +97,21 @@ extension VideoPlayerViewController {
     }
     
     private func setupLabels() {
-        self.titleLabel.textColor = .white
-        self.titleLabel.insets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
-        self.titleLabel.backgroundColor = .baseBlue
-
-        self.presenterNameLabel.textColor = .white
-        self.presenterNameLabel.backgroundColor = .baseBlue
-        self.presenterNameLabel.insets = UIEdgeInsets(top: 0, left: 20, bottom: 10, right: 20)
-        self.presenterNameLabel.addBorderViews(bottom: true, color: .lightBlue)
-
-        self.descriptionLabel.textColor = .darkGray
-        self.descriptionLabel.insets = UIEdgeInsets(top: 12, left: 20, bottom: 10, right: 20)
+        self.titleLabel.lets { label in
+            label.textColor = .white
+            label.insets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
+            label.backgroundColor = .baseBlue
+        }
+        self.presenterNameLabel.lets { label in
+            label.textColor = .white
+            label.backgroundColor = .baseBlue
+            label.insets = UIEdgeInsets(top: 0, left: 20, bottom: 10, right: 20)
+            label.addBorderViews(bottom: true, color: .lightBlue)
+        }
+        self.descriptionLabel.lets { label in
+            label.textColor = .darkGray
+            label.insets = UIEdgeInsets(top: 12, left: 20, bottom: 10, right: 20)
+        }
     }
     
     private func changePlayerStyle(_ style: VideoPlayerStyle) {

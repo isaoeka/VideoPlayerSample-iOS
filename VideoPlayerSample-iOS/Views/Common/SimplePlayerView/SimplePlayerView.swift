@@ -24,6 +24,7 @@ class SimplePlayerView: UIView {
     private var interval: Double {
         return Double(0.5 * self.seekProgressSlider.maximumValue) / Double(self.seekProgressSlider.bounds.maxX)
     }
+    private var delayHideWorkerItem: DispatchWorkItem?
     var video: Video? = nil {
         didSet {
             guard let url = URL(string: video?.videoUrl ?? "") else { return }
@@ -73,6 +74,7 @@ extension SimplePlayerView {
         // views...
         self.playerTapGesterRecognizer.view?.backgroundColor = .darkGray
         self.playerView.backgroundColor = .darkGray
+        self.showControlView()
 
         // buttons...
         let buttons: [UIButton: FontAwesome] = [
@@ -129,28 +131,49 @@ extension SimplePlayerView {
     private func fontImage(name: FontAwesome, size: CGSize, color: UIColor = .black) -> UIImage {
         return UIImage.fontAwesomeIcon(name: name, style: .solid, textColor: color, size: size)
     }
+    
+    private func changeControlViewHidden() {
+        if self.controlView.isHidden {
+            self.showControlView()
+        } else {
+            self.hideControlView()
+        }
+    }
+    
+    private func showControlView(delayHide: Bool = true) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.controlView.alpha = 1.0
+        }) { isComplet in
+            guard isComplet else { return }
+            self.controlView.isHidden = false
+            
+            // hide after a few seconds
+            if delayHide {
+                self.delayHideWorkerItem?.cancel()
+                self.delayHideWorkerItem = DispatchWorkItem() {
+                    self.hideControlView()
+                }
+                if let item = self.delayHideWorkerItem {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: item)
+                }
+            }
+        }
+    }
+    
+    private func hideControlView() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.controlView.alpha = 0
+        }) { isComplet in
+            guard isComplet else { return }
+            self.controlView.isHidden = true
+        }
+    }
 }
 
 // MARK: - IBActions
 extension SimplePlayerView {
     @IBAction func playerViewTapAction(_ sender: UITapGestureRecognizer) {
-        if self.controlView.isHidden {
-            // show control view
-            UIView.animate(withDuration: 0.3, animations: {
-                self.controlView.alpha = 1.0
-            }) { isComplet in
-                guard isComplet else { return }
-                self.controlView.isHidden = false
-            }
-        } else {
-            // hide control view
-            UIView.animate(withDuration: 0.3, animations: {
-                self.controlView.alpha = 0
-            }) { isComplet in
-                guard isComplet else { return }
-                self.controlView.isHidden = true
-            }
-        }
+        self.changeControlViewHidden()
     }
     
     @IBAction private func closeButtonAction(_ sender: UIButton) {

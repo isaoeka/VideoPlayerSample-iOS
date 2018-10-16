@@ -42,7 +42,8 @@ class VideoCell: UICollectionViewCell {
     
     private func setupViews() {
         self.backgroundColor = .baseWhite
-        self.addBorderViews(bottom: true, color: .lightGray)
+        self.addBorderViews(bottom: true, color: .lightBlue, width: 1)
+        self.addBorderViews(bottom: true, color: .lightGray, width: 0.5)
         self.presenterNameLabel.textColor = .baseGray
         self.descriptionLabel.textColor = .baseGray
     }
