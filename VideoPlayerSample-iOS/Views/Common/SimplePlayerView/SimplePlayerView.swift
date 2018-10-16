@@ -16,7 +16,11 @@ class SimplePlayerView: UIView {
             playerTapGesterRecognizer.view?.backgroundColor = .darkGray
         }
     }
-    @IBOutlet private weak var playerView: UIView!
+    @IBOutlet private weak var playerView: UIView! {
+        didSet {
+            playerView.backgroundColor = .darkGray
+        }
+    }
     @IBOutlet private weak var controlView: UIView!
     @IBOutlet private weak var closeButton: UIButton! {
         didSet {
@@ -108,6 +112,11 @@ extension SimplePlayerView {
             
             // Update layers layout
             self.playerLayer?.frame = self.playerView.bounds
+            if UIDevice.current.orientation.isLandscape {
+                self.fullScreenButton.isEnabled = false
+            } else {
+                self.fullScreenButton.isEnabled = true
+            }
         }
     }
     

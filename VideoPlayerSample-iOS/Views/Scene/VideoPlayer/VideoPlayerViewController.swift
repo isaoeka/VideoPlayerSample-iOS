@@ -39,7 +39,7 @@ class VideoPlayerViewController: UIViewController {
     }
     
     override var prefersStatusBarHidden: Bool {
-        return true // allways hide
+        return self.playerStyle == .fullscreen
     }
     
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
@@ -55,11 +55,14 @@ class VideoPlayerViewController: UIViewController {
         // Support only iphone
         if size.width > size.height {
             self.playerStyle = .fullscreen
-            self.changePlayerStyle(self.playerStyle)
         } else {
             self.playerStyle = self.isLandscape ? .fullscreen : .standard
-            self.changePlayerStyle(self.playerStyle)
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.changePlayerStyle(self.playerStyle)
     }
 }
 
@@ -70,12 +73,18 @@ extension VideoPlayerViewController {
     
     private func setupView() {
         self.setNeedsStatusBarAppearanceUpdate()
+        
+        // style setup...
         self.playerStyle = UIDevice.current.orientation.isLandscape ? .fullscreen : .standard
+        self.changePlayerStyle(self.playerStyle)
+
+        // ui setup....
         let video = self.presenter.getVideo()
         self.simplePlayerView.video = video
         self.titleLabel.text = video.title ?? ""
         self.presenterNameLabel.text = video.presenterName ?? ""
         self.descriptionLabel.text = video.description ?? ""
+
         
         // cakbacks..
         self.simplePlayerView.closeCallback = {
@@ -88,28 +97,30 @@ extension VideoPlayerViewController {
     }
     
     private func changePlayerStyle(_ style: VideoPlayerStyle) {
-        dump((UIDevice.current.orientation.rawValue, style))
+        // constraint rework...
         switch (UIDevice.current.orientation, style) {
-        case (.portrait, .standard):
+        case (.portrait, .standard),
+             (.portrait, .fullscreen):
+            
             self.switchConstraint(style)
-        case (.portrait, .fullscreen):
-            self.switchConstraint(style)
-        case (.landscapeLeft, .fullscreen):
-            if self.playerStyle != style {
+        case (.landscapeLeft, .fullscreen),
+             (.landscapeRight, .fullscreen):
+            
+            // from .fullscreen to .fullscreen
+            if self.playerStyle == style {
+                self.switchConstraint(style)
+            } else {
                 self.switchConstraint(style)
             }
-            self.simplePlayerView.updateLayoutForViewState()
-        case (.landscapeRight, .fullscreen):
-            if self.playerStyle != style {
-                self.switchConstraint(style)
-            }
-            self.switchConstraint(style)
-            self.simplePlayerView.updateLayoutForViewState()
         default:
             // does not exist
             break
         }
         
+        // update player layout
+        self.setNeedsStatusBarAppearanceUpdate()
+        self.simplePlayerView.updateLayoutForViewState()
+
         // set global style
         self.playerStyle = style
     }
