@@ -102,8 +102,13 @@ extension SimplePlayerView {
         }
     }
     
-    func updateLayoutForOrientation(_ rerect: CGRect? = nil) {
-        
+    func updateLayoutForViewState() {
+        DispatchQueue.main.async {
+            // Update views layouer
+            
+            // Update layers layout
+            self.playerLayer?.frame = self.playerView.bounds
+        }
     }
     
     private func syncSeekSlider() {
@@ -154,12 +159,7 @@ extension SimplePlayerView {
     
     @IBAction private func fullscreenButtonAction(_ sender: UIButton) {
         self.fullscreenCallback?()
-        DispatchQueue.main.async {
-            // Update views layouer
-            
-            // Update layers layout
-            self.playerLayer?.frame = self.playerView.bounds
-        }
+        self.updateLayoutForViewState()
     }
     
     @IBAction private func playButtonAction(_ sender: UIButton) {

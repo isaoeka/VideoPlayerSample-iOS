@@ -51,7 +51,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1s6-IH-LDf" userLabel="Full Screen Button">
-                            <rect key="frame" x="442" y="237" width="30" height="25"/>
+                            <rect key="frame" x="438" y="237" width="30" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="Q9O-ps-Qol"/>
                                 <constraint firstAttribute="width" constant="30" id="WoI-hI-bz2"/>
@@ -83,7 +83,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MZ-s7-Kbn" userLabel="Duration Label" customClass="TimeLabel" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
-                            <rect key="frame" x="374" y="237" width="60" height="25"/>
+                            <rect key="frame" x="370" y="237" width="60" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="OPy-RP-Hux"/>
                                 <constraint firstAttribute="height" constant="25" id="V9F-LP-CkC"/>
@@ -110,7 +110,7 @@
                         <constraint firstItem="hOR-BL-aDM" firstAttribute="leading" secondItem="UYW-vm-IyK" secondAttribute="leading" constant="8" id="G9E-Bz-Rjn"/>
                         <constraint firstItem="1s6-IH-LDf" firstAttribute="leading" secondItem="1MZ-s7-Kbn" secondAttribute="trailing" constant="8" id="Iv5-KL-enw"/>
                         <constraint firstItem="1MZ-s7-Kbn" firstAttribute="centerY" secondItem="1s6-IH-LDf" secondAttribute="centerY" id="Mqe-J0-7LP"/>
-                        <constraint firstAttribute="trailing" secondItem="1s6-IH-LDf" secondAttribute="trailing" constant="8" id="NXS-f1-hQS"/>
+                        <constraint firstAttribute="trailing" secondItem="1s6-IH-LDf" secondAttribute="trailing" constant="12" id="NXS-f1-hQS"/>
                         <constraint firstAttribute="bottom" secondItem="1s6-IH-LDf" secondAttribute="bottom" constant="8" id="aE4-lO-v6b"/>
                         <constraint firstItem="3wp-Gr-S66" firstAttribute="leading" secondItem="UYW-vm-IyK" secondAttribute="leading" constant="8" id="btT-Cx-EJd"/>
                         <constraint firstItem="alI-Qh-n93" firstAttribute="leading" secondItem="UYW-vm-IyK" secondAttribute="leading" constant="8" id="ity-Sd-VcS"/>
