@@ -10,13 +10,10 @@ import Alamofire
 import AlamofireObjectMapper
 
 struct VideoAPI {
-    
     static func getList(completion: @escaping ([Video]) -> Void) {
         Alamofire.request(AppConst.ApiUrl.videoList.rawValue).responseArray { (response: DataResponse<[Video]>) in
-            // TODO: Error handling
             let videoList = response.result.value ?? []
             completion(videoList)
         }
     }
-    
 }
