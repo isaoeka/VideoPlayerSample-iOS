@@ -78,15 +78,10 @@ extension VideoPlayerViewController {
         self.playerStyle = UIDevice.current.orientation.isLandscape ? .fullscreen : .standard
         self.changePlayerStyle(self.playerStyle)
 
-        // video setup....
+        // ui setup....
+        self.setupLabels()
         let video = self.presenter.getVideo()
         self.simplePlayerView.video = video
-
-        // label setup....
-        self.titleLabel.insets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
-        self.presenterNameLabel.insets = UIEdgeInsets(top: 0, left: 20, bottom: 10, right: 20)
-        self.descriptionLabel.insets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
-        self.presenterNameLabel.addBorderViews(bottom: true, color: .darkGray)
         self.titleLabel.text = video.title ?? ""
         self.presenterNameLabel.text = video.presenterName ?? ""
         self.descriptionLabel.text = video.description ?? ""
@@ -99,6 +94,20 @@ extension VideoPlayerViewController {
             // ~~ style change ~~
             self.changePlayerStyle(self.playerStyle.change())
         }
+    }
+    
+    private func setupLabels() {
+        self.titleLabel.textColor = .white
+        self.titleLabel.insets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
+        self.titleLabel.backgroundColor = .baseBlue
+
+        self.presenterNameLabel.textColor = .white
+        self.presenterNameLabel.backgroundColor = .baseBlue
+        self.presenterNameLabel.insets = UIEdgeInsets(top: 0, left: 20, bottom: 10, right: 20)
+        self.presenterNameLabel.addBorderViews(bottom: true, color: .lightBlue)
+
+        self.descriptionLabel.textColor = .darkGray
+        self.descriptionLabel.insets = UIEdgeInsets(top: 12, left: 20, bottom: 10, right: 20)
     }
     
     private func changePlayerStyle(_ style: VideoPlayerStyle) {
