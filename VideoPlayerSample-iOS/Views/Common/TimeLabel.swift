@@ -14,6 +14,11 @@ class TimeLabel: UILabel {
             self.text = self.convertToDisplayTime(msec: msec ?? 0)
         }
     }
+    var sec: Int? {
+        didSet {
+            self.text = self.convertToDisplayTime(sec: sec ?? 0)
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,8 +41,8 @@ class TimeLabel: UILabel {
         self.font = UIFont.systemFont(ofSize: 14.0)
     }
     
-    private func convertToDisplayTime(msec: Int) -> String {
-        let sec = msec / 1000
+    private func convertToDisplayTime(msec: Int? = nil, sec: Int? = nil) -> String {
+        let sec = sec ?? msec?.lets { Int($0 / 1000) } ?? 0
         let hours =  sec / 3600
         let minutes = sec % 3600 / 60
         let seconds = sec % 60

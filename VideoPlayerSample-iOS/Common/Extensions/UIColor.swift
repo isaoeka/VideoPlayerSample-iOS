@@ -23,6 +23,7 @@ extension UIColor {
         self.init(red: rgba[0], green: rgba[1], blue: rgba[2], alpha: rgba[3])
     }
     
+    static var baseWhite: UIColor { return UIColor(245, 245, 240) }
     static var baseBlue: UIColor { return UIColor(53, 91, 165) }
     static var lightBlue: UIColor { return UIColor(66, 128, 228) }
     static var baseGray: UIColor { return UIColor(149, 190, 241) }

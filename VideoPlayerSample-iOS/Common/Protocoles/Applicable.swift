@@ -15,6 +15,11 @@ extension Applicable {
         block(self)
         return self
     }
+    
+    func lets<R>(block: (Self) -> R) -> R {
+        return block(self)
+    }
 }
 
 extension NSObject: Applicable {}
+extension Int: Applicable {}

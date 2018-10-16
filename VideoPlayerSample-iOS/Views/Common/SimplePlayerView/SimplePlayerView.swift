@@ -11,38 +11,12 @@ import AVFoundation
 import FontAwesome
 
 class SimplePlayerView: UIView {
-    @IBOutlet private weak var playerTapGesterRecognizer: UITapGestureRecognizer! {
-        didSet {
-            playerTapGesterRecognizer.view?.backgroundColor = .darkGray
-        }
-    }
-    @IBOutlet private weak var playerView: UIView! {
-        didSet {
-            playerView.backgroundColor = .darkGray
-        }
-    }
+    @IBOutlet private weak var playerTapGesterRecognizer: UITapGestureRecognizer!
+    @IBOutlet private weak var playerView: UIView!
     @IBOutlet private weak var controlView: UIView!
-    @IBOutlet private weak var closeButton: UIButton! {
-        didSet {
-            let image = self.fontImage(name: .chevronDown, size: closeButton.frame.size)
-            closeButton.setImage(image, for: .normal)
-            closeButton.setTitle("", for: .normal)
-        }
-    }
-    @IBOutlet private weak var fullScreenButton: UIButton! {
-        didSet {
-            let image = self.fontImage(name: .expand, size: fullScreenButton.frame.size)
-            fullScreenButton.setImage(image, for: .normal)
-            fullScreenButton.setTitle("", for: .normal)
-        }
-    }
-    @IBOutlet private weak var playButton: UIButton! {
-        didSet {
-            let image = self.fontImage(name: .pause, size: playButton.frame.size)
-            playButton.setImage(image, for: .normal)
-            playButton.setTitle("", for: .normal)
-        }
-    }
+    @IBOutlet private weak var closeButton: UIButton!
+    @IBOutlet private weak var fullScreenButton: UIButton!
+    @IBOutlet private weak var playButton: UIButton!
     @IBOutlet private weak var currentTimeLabel: TimeLabel!
     @IBOutlet private weak var durationLabel: TimeLabel!
     @IBOutlet private weak var seekProgressSlider: UISlider! {
@@ -103,13 +77,31 @@ extension SimplePlayerView {
         if let view = Bundle(for: type(of: self)).loadNibNamed(className, owner: self, options: nil)?.first as? UIView {
             self.addSubview(view)
             view.fillConstraint(to: self)
+            self.setupViews()
+        }
+    }
+    
+    private func setupViews() {
+        // views...
+        self.playerTapGesterRecognizer.view?.backgroundColor = .darkGray
+        self.playerView.backgroundColor = .darkGray
+
+        // buttons...
+        let buttons: [UIButton: FontAwesome] = [
+            self.closeButton: .chevronDown,
+            self.fullScreenButton: .expand,
+            self.playButton: .pause,
+            ]
+        buttons.forEach { (button, name) in
+            let image = self.fontImage(name: name, size: button.frame.size)
+            button.tintColor = .baseWhite
+            button.setImage(image, for: .normal)
+            button.setTitle("", for: .normal)
         }
     }
     
     func updateLayoutForViewState() {
         DispatchQueue.main.async {
-            // Update views layouer
-            
             // Update layers layout
             self.playerLayer?.frame = self.playerView.bounds
             if UIDevice.current.orientation.isLandscape {
@@ -131,7 +123,7 @@ extension SimplePlayerView {
         guard let player = self.player,
             let duration = player.currentItem?.duration.seconds else { return }
         self.seekProgressSlider.value = Float(time.seconds / duration)
-        self.currentTimeLabel.msec = Int(time.seconds)
+        self.currentTimeLabel.sec = Int(time.seconds)
     }
     
     private func fontImage(name: FontAwesome, size: CGSize) -> UIImage {
