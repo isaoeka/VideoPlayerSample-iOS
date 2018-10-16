@@ -42,7 +42,9 @@ extension VideoListViewController {
         self.collectionView.collectionViewLayout = UICollectionViewFlowLayout().apply {
             $0.scrollDirection = .vertical
             $0.minimumLineSpacing = 0
-            $0.estimatedItemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.estimatedCellHeight())
+            
+            // Warning comes out when estimatedItemSize becomes larger than screen size ... :<
+            $0.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width, height: VideoCell.estimatedCellHeight())
             $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.estimatedCellHeight())
         }
         self.collectionView.backgroundColor = .baseWhite
