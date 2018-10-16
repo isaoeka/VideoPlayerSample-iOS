@@ -37,12 +37,15 @@ class VideoCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.initializeView()
+        self.setupViews()
     }
     
-    private func initializeView() {
-        self.backgroundColor = .white
+    private func setupViews() {
+        self.backgroundColor = .baseWhite
+        self.addBorderViews(bottom: true, color: .lightBlue, width: 1)
+        self.addBorderViews(bottom: true, color: .lightGray, width: 0.5)
+        self.presenterNameLabel.textColor = .baseGray
+        self.descriptionLabel.textColor = .baseGray
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {

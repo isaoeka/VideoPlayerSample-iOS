@@ -11,63 +11,27 @@ import AVFoundation
 import FontAwesome
 
 class SimplePlayerView: UIView {
-    @IBOutlet private weak var playerTapGesterRecognizer: UITapGestureRecognizer! {
-        didSet {
-            playerTapGesterRecognizer.view?.backgroundColor = .darkGray
-        }
-    }
-    @IBOutlet private weak var playerView: UIView! {
-        didSet {
-            playerView.backgroundColor = .darkGray
-        }
-    }
+    @IBOutlet private weak var playerTapGesterRecognizer: UITapGestureRecognizer!
+    @IBOutlet private weak var playerView: AVPlayerView!
     @IBOutlet private weak var controlView: UIView!
-    @IBOutlet private weak var closeButton: UIButton! {
-        didSet {
-            let image = self.fontImage(name: .chevronDown, size: closeButton.frame.size)
-            closeButton.setImage(image, for: .normal)
-            closeButton.setTitle("", for: .normal)
-        }
-    }
-    @IBOutlet private weak var fullScreenButton: UIButton! {
-        didSet {
-            let image = self.fontImage(name: .expand, size: fullScreenButton.frame.size)
-            fullScreenButton.setImage(image, for: .normal)
-            fullScreenButton.setTitle("", for: .normal)
-        }
-    }
-    @IBOutlet private weak var playButton: UIButton! {
-        didSet {
-            let image = self.fontImage(name: .pause, size: playButton.frame.size)
-            playButton.setImage(image, for: .normal)
-            playButton.setTitle("", for: .normal)
-        }
-    }
+    @IBOutlet private weak var closeButton: UIButton!
+    @IBOutlet private weak var fullScreenButton: UIButton!
+    @IBOutlet private weak var playButton: UIButton!
     @IBOutlet private weak var currentTimeLabel: TimeLabel!
     @IBOutlet private weak var durationLabel: TimeLabel!
-    @IBOutlet private weak var seekProgressSlider: UISlider! {
-        didSet {
-            seekProgressSlider.value = 0.0
-            seekProgressSlider.minimumValue = 0.0
-            seekProgressSlider.maximumValue = 1.0
-        }
-    }
+    @IBOutlet private weak var seekProgressSlider: UISlider!
 
     private var interval: Double {
         return Double(0.5 * self.seekProgressSlider.maximumValue) / Double(self.seekProgressSlider.bounds.maxX)
     }
-    private var player: AVPlayer?
-    private var playerLayer: AVPlayerLayer? {
-        return self.playerView.layer.sublayers?.first { $0 is AVPlayerLayer } as? AVPlayerLayer
-    }
+    private var delayHideWorkerItem: DispatchWorkItem?
     var video: Video? = nil {
         didSet {
             guard let url = URL(string: video?.videoUrl ?? "") else { return }
-            self.player = AVPlayer(url: url)
-            self.playerView.layer.addSublayer(AVPlayerLayer(player: self.player).apply {
+            self.playerView.setPlayerLayer(AVPlayerLayer(player: AVPlayer(url: url)).apply {
                 $0.frame = self.bounds
             })
-            self.player?.play()
+            self.playerView.player?.play()
             self.syncSeekSlider()
             self.durationLabel.msec = video?.videoDuration ?? 0
         }
@@ -88,8 +52,7 @@ class SimplePlayerView: UIView {
     }
     
     deinit {
-        self.player?.pause()
-        // TODO: remove time ovserver
+        self.playerView.player?.pause()
     }
     
     override func layoutSubviews() {
@@ -103,15 +66,46 @@ extension SimplePlayerView {
         if let view = Bundle(for: type(of: self)).loadNibNamed(className, owner: self, options: nil)?.first as? UIView {
             self.addSubview(view)
             view.fillConstraint(to: self)
+            self.setupViews()
+        }
+    }
+    
+    private func setupViews() {
+        // views...
+        self.playerTapGesterRecognizer.view?.backgroundColor = .darkGray
+        self.playerView.backgroundColor = .darkGray
+        self.showControlView()
+
+        // buttons...
+        let buttons: [UIButton: FontAwesome] = [
+            self.closeButton: .chevronDown,
+            self.fullScreenButton: .expand,
+            self.playButton: .pause,
+            ]
+        buttons.forEach { (button, name) in
+            let image = self.fontImage(name: name, size: button.frame.size)
+            button.tintColor = .baseWhite
+            button.setImage(image, for: .normal)
+            button.setTitle("", for: .normal)
+        }
+
+        // seekbar...
+        self.seekProgressSlider.lets { slider in
+            slider.value = 0.0
+            slider.minimumValue = 0.0
+            slider.maximumValue = 1.0
+            let thumbnaiSize = CGSize(width: 35, height: 35)
+            slider.setThumbImage(self.fontImage(name: .pencilAlt, size: thumbnaiSize, color: .white), for: .normal)
+            slider.setThumbImage(self.fontImage(name: .pencilAlt, size: thumbnaiSize, color: .baseGray), for: .highlighted)
+            slider.minimumTrackTintColor = .baseBlue
+            slider.maximumTrackTintColor = .baseWhite
         }
     }
     
     func updateLayoutForViewState() {
         DispatchQueue.main.async {
-            // Update views layouer
-            
             // Update layers layout
-            self.playerLayer?.frame = self.playerView.bounds
+            self.playerView.playerLayer?.frame = self.playerView.bounds
             if UIDevice.current.orientation.isLandscape {
                 self.fullScreenButton.isEnabled = false
             } else {
@@ -122,47 +116,68 @@ extension SimplePlayerView {
     
     private func syncSeekSlider() {
         let time: CMTime = CMTimeMakeWithSeconds(self.interval, preferredTimescale: Int32(NSEC_PER_SEC))
-        self.player?.addPeriodicTimeObserver(forInterval: time, queue: nil, using: { [weak self] time in
+        self.playerView.player?.addPeriodicTimeObserver(forInterval: time, queue: nil, using: { [weak self] time in
             self?.updateSeekProgressSlider(time)
         })
     }
     
     private func updateSeekProgressSlider(_ time: CMTime) {
-        guard let player = self.player,
+        guard let player = self.playerView.player,
             let duration = player.currentItem?.duration.seconds else { return }
         self.seekProgressSlider.value = Float(time.seconds / duration)
-        self.currentTimeLabel.msec = Int(time.seconds)
+        self.currentTimeLabel.sec = Int(time.seconds)
     }
     
-    private func fontImage(name: FontAwesome, size: CGSize) -> UIImage {
-        return UIImage.fontAwesomeIcon(name: name, style: .solid, textColor: .black, size: size)
+    private func fontImage(name: FontAwesome, size: CGSize, color: UIColor = .black) -> UIImage {
+        return UIImage.fontAwesomeIcon(name: name, style: .solid, textColor: color, size: size)
+    }
+    
+    private func changeControlViewHidden() {
+        if self.controlView.isHidden {
+            self.showControlView()
+        } else {
+            self.hideControlView()
+        }
+    }
+    
+    private func showControlView(delayHide: Bool = true) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.controlView.alpha = 1.0
+        }) { isComplet in
+            guard isComplet else { return }
+            self.controlView.isHidden = false
+            
+            // hide after a few seconds
+            if delayHide {
+                self.delayHideWorkerItem?.cancel()
+                self.delayHideWorkerItem = DispatchWorkItem() {
+                    self.hideControlView()
+                }
+                if let item = self.delayHideWorkerItem {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: item)
+                }
+            }
+        }
+    }
+    
+    private func hideControlView() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.controlView.alpha = 0
+        }) { isComplet in
+            guard isComplet else { return }
+            self.controlView.isHidden = true
+        }
     }
 }
 
 // MARK: - IBActions
 extension SimplePlayerView {
     @IBAction func playerViewTapAction(_ sender: UITapGestureRecognizer) {
-        if self.controlView.isHidden {
-            // show control view
-            UIView.animate(withDuration: 0.3, animations: {
-                self.controlView.alpha = 1.0
-            }) { isComplet in
-                guard isComplet else { return }
-                self.controlView.isHidden = false
-            }
-        } else {
-            // hide control view
-            UIView.animate(withDuration: 0.3, animations: {
-                self.controlView.alpha = 0
-            }) { isComplet in
-                guard isComplet else { return }
-                self.controlView.isHidden = true
-            }
-        }
+        self.changeControlViewHidden()
     }
     
     @IBAction private func closeButtonAction(_ sender: UIButton) {
-        self.player?.pause()
+        self.playerView.player?.pause()
         self.closeCallback?()
     }
     
@@ -172,7 +187,7 @@ extension SimplePlayerView {
     }
     
     @IBAction private func playButtonAction(_ sender: UIButton) {
-        guard let player = self.player else { return }
+        guard let player = self.playerView.player else { return }
         if player.isPlaying {
             let image = self.fontImage(name: .play, size: self.playButton.frame.size)
             self.playButton.setImage(image, for: .normal)
@@ -185,7 +200,7 @@ extension SimplePlayerView {
     }
 
     @IBAction private func seekProgressChanged(_ sender: UISlider) {
-        guard let player = self.player,
+        guard let player = self.playerView.player,
             let duration = player.currentItem?.duration.seconds else { return }
 
         let seconds = Double(sender.value) * duration

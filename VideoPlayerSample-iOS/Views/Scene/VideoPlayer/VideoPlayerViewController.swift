@@ -24,9 +24,9 @@ enum VideoPlayerStyle {
 
 class VideoPlayerViewController: UIViewController {
     @IBOutlet weak var simplePlayerView: SimplePlayerView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var presenterNameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var titleLabel: IndentLabel!
+    @IBOutlet weak var presenterNameLabel: IndentLabel!
+    @IBOutlet weak var descriptionLabel: IndentLabel!
     @IBOutlet var simplePlayerViewRatio: NSLayoutConstraint!
     @IBOutlet var simplePlayerViewBottomAnker: NSLayoutConstraint!
     
@@ -79,12 +79,12 @@ extension VideoPlayerViewController {
         self.changePlayerStyle(self.playerStyle)
 
         // ui setup....
+        self.setupLabels()
         let video = self.presenter.getVideo()
         self.simplePlayerView.video = video
         self.titleLabel.text = video.title ?? ""
         self.presenterNameLabel.text = video.presenterName ?? ""
         self.descriptionLabel.text = video.description ?? ""
-
         
         // cakbacks..
         self.simplePlayerView.closeCallback = {
@@ -93,6 +93,24 @@ extension VideoPlayerViewController {
         self.simplePlayerView.fullscreenCallback = {
             // ~~ style change ~~
             self.changePlayerStyle(self.playerStyle.change())
+        }
+    }
+    
+    private func setupLabels() {
+        self.titleLabel.lets { label in
+            label.textColor = .white
+            label.insets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
+            label.backgroundColor = .baseBlue
+        }
+        self.presenterNameLabel.lets { label in
+            label.textColor = .white
+            label.backgroundColor = .baseBlue
+            label.insets = UIEdgeInsets(top: 0, left: 20, bottom: 10, right: 20)
+            label.addBorderViews(bottom: true, color: .lightBlue)
+        }
+        self.descriptionLabel.lets { label in
+            label.textColor = .darkGray
+            label.insets = UIEdgeInsets(top: 12, left: 20, bottom: 10, right: 20)
         }
     }
     
