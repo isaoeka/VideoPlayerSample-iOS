@@ -13,8 +13,8 @@ protocol VideoListView: class {
 }
 
 class VideoListViewController: UIViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet private weak var collectionView: UICollectionView!
+    
     private lazy var presenter = VideoListPresenter(view: self)
 
     override func viewDidLoad() {
@@ -26,8 +26,17 @@ class VideoListViewController: UIViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
-    
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
+        } else {
+        }
+    }
+}
+
+extension VideoListViewController {
     private func initializeView() {
+        // collection view...
         let nib = UINib(nibName: VideoCell.simpleClassName(), bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: VideoCell.simpleClassName())
         self.collectionView.collectionViewLayout = UICollectionViewFlowLayout().apply {
@@ -36,9 +45,9 @@ class VideoListViewController: UIViewController {
             $0.estimatedItemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.estimatedCellHeight())
             $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.estimatedCellHeight())
         }
+        self.collectionView.backgroundColor = .lightBlue
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        self.collectionView.backgroundColor = .lightGray
     }
 }
 

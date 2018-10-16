@@ -56,7 +56,7 @@
 		195A4BB52175F88A0097ACD3 /* IndentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentLabel.swift; sourceTree = "<group>"; };
 		196476FC21722AF400DFE555 /* VideoPlayerSample-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VideoPlayerSample-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		196476FF21722AF400DFE555 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1964770121722AF400DFE555 /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
+		1964770121722AF400DFE555 /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		1964770421722AF400DFE555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VideoList.storyboard; sourceTree = "<group>"; };
 		1964770621722AF500DFE555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1964770921722AF500DFE555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
