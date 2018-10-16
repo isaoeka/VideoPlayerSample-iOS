@@ -28,29 +28,32 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnB-4y-Kuj">
                                 <rect key="frame" x="0.0" y="231" width="375" height="436"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1A1-Hw-gPT" userLabel="Content Vertical Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1A1-Hw-gPT" userLabel="Content Vertical Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKl-G1-evL" userLabel="Title Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKl-G1-evL" userLabel="Title Label" customClass="IndentLabel" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Gw3-hj-8iN"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="gcl-9D-UQC"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presenter Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZV-xG-9fH" userLabel="Presenter Name Label">
-                                                <rect key="frame" x="0.0" y="50" width="375" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presenter Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZV-xG-9fH" userLabel="Presenter Name Label" customClass="IndentLabel" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44" width="375" height="24"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="hVm-WR-pey"/>
+                                                    <constraint firstAttribute="height" constant="24" id="vYV-C8-R21"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Euw-9X-TfW" userLabel="Description Label">
-                                                <rect key="frame" x="0.0" y="100" width="375" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Euw-9X-TfW" userLabel="Description Label" customClass="IndentLabel" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="72" width="375" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="IDd-kI-tDj"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>

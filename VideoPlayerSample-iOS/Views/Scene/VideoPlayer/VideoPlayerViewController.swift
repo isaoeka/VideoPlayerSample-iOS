@@ -24,9 +24,9 @@ enum VideoPlayerStyle {
 
 class VideoPlayerViewController: UIViewController {
     @IBOutlet weak var simplePlayerView: SimplePlayerView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var presenterNameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var titleLabel: IndentLabel!
+    @IBOutlet weak var presenterNameLabel: IndentLabel!
+    @IBOutlet weak var descriptionLabel: IndentLabel!
     @IBOutlet var simplePlayerViewRatio: NSLayoutConstraint!
     @IBOutlet var simplePlayerViewBottomAnker: NSLayoutConstraint!
     
@@ -78,16 +78,18 @@ extension VideoPlayerViewController {
         self.playerStyle = UIDevice.current.orientation.isLandscape ? .fullscreen : .standard
         self.changePlayerStyle(self.playerStyle)
 
-        // ui setup....
-        let video = self.presenter.getVideo()        
+        // video setup....
+        let video = self.presenter.getVideo()
         self.simplePlayerView.video = video
+
+        // label setup....
+        self.titleLabel.insets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
+        self.presenterNameLabel.insets = UIEdgeInsets(top: 0, left: 20, bottom: 10, right: 20)
+        self.descriptionLabel.insets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        self.presenterNameLabel.addBorderViews(bottom: true, color: .darkGray)
         self.titleLabel.text = video.title ?? ""
         self.presenterNameLabel.text = video.presenterName ?? ""
         self.descriptionLabel.text = video.description ?? ""
-
-        self.titleLabel.backgroundColor = .blue
-        self.presenterNameLabel.backgroundColor = .green
-        self.descriptionLabel.backgroundColor = .yellow
         
         // cakbacks..
         self.simplePlayerView.closeCallback = {
