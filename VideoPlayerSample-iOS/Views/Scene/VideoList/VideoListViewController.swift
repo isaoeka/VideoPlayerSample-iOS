@@ -41,11 +41,11 @@ extension VideoListViewController {
         self.collectionView.register(nib, forCellWithReuseIdentifier: VideoCell.simpleClassName())
         self.collectionView.collectionViewLayout = UICollectionViewFlowLayout().apply {
             $0.scrollDirection = .vertical
-            $0.minimumLineSpacing = 1
+            $0.minimumLineSpacing = 0
             $0.estimatedItemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.estimatedCellHeight())
             $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.estimatedCellHeight())
         }
-        self.collectionView.backgroundColor = .lightBlue
+        self.collectionView.backgroundColor = .baseWhite
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }

@@ -19,13 +19,7 @@ class SimplePlayerView: UIView {
     @IBOutlet private weak var playButton: UIButton!
     @IBOutlet private weak var currentTimeLabel: TimeLabel!
     @IBOutlet private weak var durationLabel: TimeLabel!
-    @IBOutlet private weak var seekProgressSlider: UISlider! {
-        didSet {
-            seekProgressSlider.value = 0.0
-            seekProgressSlider.minimumValue = 0.0
-            seekProgressSlider.maximumValue = 1.0
-        }
-    }
+    @IBOutlet private weak var seekProgressSlider: UISlider!
 
     private var interval: Double {
         return Double(0.5 * self.seekProgressSlider.maximumValue) / Double(self.seekProgressSlider.bounds.maxX)
@@ -98,6 +92,18 @@ extension SimplePlayerView {
             button.setImage(image, for: .normal)
             button.setTitle("", for: .normal)
         }
+
+        // seekbar...
+        self.seekProgressSlider.lets { slider in
+            slider.value = 0.0
+            slider.minimumValue = 0.0
+            slider.maximumValue = 1.0
+            let thumbnaiSize = CGSize(width: 35, height: 35)
+            slider.setThumbImage(self.fontImage(name: .pencilAlt, size: thumbnaiSize, color: .white), for: .normal)
+            slider.setThumbImage(self.fontImage(name: .pencilAlt, size: thumbnaiSize, color: .baseGray), for: .highlighted)
+            slider.minimumTrackTintColor = .baseBlue
+            slider.maximumTrackTintColor = .baseWhite
+        }
     }
     
     func updateLayoutForViewState() {
@@ -126,8 +132,8 @@ extension SimplePlayerView {
         self.currentTimeLabel.sec = Int(time.seconds)
     }
     
-    private func fontImage(name: FontAwesome, size: CGSize) -> UIImage {
-        return UIImage.fontAwesomeIcon(name: name, style: .solid, textColor: .black, size: size)
+    private func fontImage(name: FontAwesome, size: CGSize, color: UIColor = .black) -> UIImage {
+        return UIImage.fontAwesomeIcon(name: name, style: .solid, textColor: color, size: size)
     }
 }
 
