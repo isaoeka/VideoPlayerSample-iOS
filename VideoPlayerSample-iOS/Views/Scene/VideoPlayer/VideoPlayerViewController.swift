@@ -79,12 +79,15 @@ extension VideoPlayerViewController {
         self.changePlayerStyle(self.playerStyle)
 
         // ui setup....
-        let video = self.presenter.getVideo()
+        let video = self.presenter.getVideo()        
         self.simplePlayerView.video = video
         self.titleLabel.text = video.title ?? ""
         self.presenterNameLabel.text = video.presenterName ?? ""
         self.descriptionLabel.text = video.description ?? ""
 
+        self.titleLabel.backgroundColor = .blue
+        self.presenterNameLabel.backgroundColor = .green
+        self.descriptionLabel.backgroundColor = .yellow
         
         // cakbacks..
         self.simplePlayerView.closeCallback = {

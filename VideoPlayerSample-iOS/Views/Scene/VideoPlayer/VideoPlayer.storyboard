@@ -14,31 +14,10 @@
         <scene sceneID="3Kq-VA-VyC">
             <objects>
                 <viewController id="Zxh-Bl-lYN" customClass="VideoPlayerViewController" customModule="VideoPlayerSample_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vxm-Sb-IeG">
+                    <view key="view" contentMode="scaleToFill" id="vxm-Sb-IeG" userLabel="Base View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKl-G1-evL" userLabel="Title Label">
-                                <rect key="frame" x="16" y="242" width="208" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Presenter Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZV-xG-9fH" userLabel="Presenter Name Label">
-                                <rect key="frame" x="16" y="271" width="208" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Euw-9X-TfW" userLabel="Description Label">
-                                <rect key="frame" x="16" y="300" width="208" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hf0-1k-wEN" userLabel="Simple Player View" customClass="SimplePlayerView" customModule="VideoPlayerSample_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="211"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -46,12 +25,57 @@
                                     <constraint firstAttribute="width" secondItem="Hf0-1k-wEN" secondAttribute="height" multiplier="16:9" id="TaY-bl-cEZ"/>
                                 </constraints>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnB-4y-Kuj">
+                                <rect key="frame" x="0.0" y="231" width="375" height="436"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1A1-Hw-gPT" userLabel="Content Vertical Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKl-G1-evL" userLabel="Title Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Gw3-hj-8iN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presenter Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZV-xG-9fH" userLabel="Presenter Name Label">
+                                                <rect key="frame" x="0.0" y="50" width="375" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="hVm-WR-pey"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Euw-9X-TfW" userLabel="Description Label">
+                                                <rect key="frame" x="0.0" y="100" width="375" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1A1-Hw-gPT" secondAttribute="bottom" id="BUj-rq-AOS"/>
+                                    <constraint firstItem="1A1-Hw-gPT" firstAttribute="top" secondItem="JnB-4y-Kuj" secondAttribute="top" id="KUP-fi-I5x"/>
+                                    <constraint firstItem="1A1-Hw-gPT" firstAttribute="centerX" secondItem="JnB-4y-Kuj" secondAttribute="centerX" id="ibU-W1-1r0"/>
+                                    <constraint firstAttribute="trailing" secondItem="1A1-Hw-gPT" secondAttribute="trailing" id="uPj-BY-fMR"/>
+                                    <constraint firstItem="1A1-Hw-gPT" firstAttribute="leading" secondItem="JnB-4y-Kuj" secondAttribute="leading" id="zS1-Et-SOd"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="A4L-jp-TyM" firstAttribute="trailing" secondItem="Hf0-1k-wEN" secondAttribute="trailing" id="5wr-C6-PFb"/>
                             <constraint firstItem="Hf0-1k-wEN" firstAttribute="top" secondItem="A4L-jp-TyM" secondAttribute="top" id="C8l-lb-xSZ"/>
+                            <constraint firstItem="JnB-4y-Kuj" firstAttribute="leading" secondItem="A4L-jp-TyM" secondAttribute="leading" id="IPh-Tn-OzC"/>
+                            <constraint firstItem="JnB-4y-Kuj" firstAttribute="bottom" secondItem="A4L-jp-TyM" secondAttribute="bottom" id="Yrf-LX-TLW"/>
+                            <constraint firstItem="JnB-4y-Kuj" firstAttribute="top" secondItem="Hf0-1k-wEN" secondAttribute="bottom" id="d1x-Bb-5fw"/>
                             <constraint firstAttribute="bottom" secondItem="Hf0-1k-wEN" secondAttribute="bottom" id="oDy-Yd-zpt"/>
+                            <constraint firstItem="JnB-4y-Kuj" firstAttribute="trailing" secondItem="A4L-jp-TyM" secondAttribute="trailing" id="ye9-ns-Vo0"/>
                             <constraint firstItem="Hf0-1k-wEN" firstAttribute="leading" secondItem="A4L-jp-TyM" secondAttribute="leading" id="z3k-we-Kdn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A4L-jp-TyM"/>
