@@ -39,7 +39,7 @@ class SimplePlayerView: UIView {
     
     // MARK: Callbacks
     var closeCallback: (() -> Void)? = nil
-    var fullscreenCallback: (() -> Void)? = nil // TODO: rename to expand ~
+    var fullscreenCallback: (() -> Void)? = nil
 
     override init(frame: CGRect) {
         super.init(frame: frame)

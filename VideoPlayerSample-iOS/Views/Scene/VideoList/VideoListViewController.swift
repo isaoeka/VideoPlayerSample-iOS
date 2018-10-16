@@ -26,23 +26,15 @@ class VideoListViewController: UIViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
-        } else {
-        }
-    }
 }
 
 extension VideoListViewController {
     private func initializeView() {
-        // collection view...
         let nib = UINib(nibName: VideoCell.simpleClassName(), bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: VideoCell.simpleClassName())
         self.collectionView.collectionViewLayout = UICollectionViewFlowLayout().apply {
             $0.scrollDirection = .vertical
             $0.minimumLineSpacing = 0
-            
             // Warning comes out when estimatedItemSize becomes larger than screen size ... :<
             $0.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width, height: VideoCell.estimatedCellHeight())
             $0.itemSize = CGSize(width: self.collectionView.frame.width, height: VideoCell.estimatedCellHeight())
@@ -80,8 +72,6 @@ extension VideoListViewController: UICollectionViewDataSource, UICollectionViewD
             let viewController = UIStoryboard(name: VideoPlayerViewController.storyBoradName(), bundle: nil).instantiateInitialViewController() as? VideoPlayerViewController else {
             return
         }
-    
-        // TODO: maybe redone to factory pattern
         viewController.createPresenter(withVideo: video)
         self.present(viewController, animated: true)
     }
