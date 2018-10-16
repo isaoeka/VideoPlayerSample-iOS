@@ -18,6 +18,7 @@
                 <outlet property="durationLabel" destination="1MZ-s7-Kbn" id="95H-Ca-7ey"/>
                 <outlet property="fullScreenButton" destination="1s6-IH-LDf" id="QdX-TN-YXm"/>
                 <outlet property="playButton" destination="mu3-mI-EME" id="vTA-Lj-z5s"/>
+                <outlet property="playerTapGesterRecognizer" destination="FjR-Xf-GMp" id="IXr-lO-O7t"/>
                 <outlet property="playerView" destination="zbB-5h-MZy" id="H58-WE-iqS"/>
                 <outlet property="seekProgressSlider" destination="alI-Qh-n93" id="jsx-AX-L1h"/>
             </connections>
@@ -31,6 +32,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="zbB-5h-MZy" secondAttribute="height" multiplier="16:9" id="Rfe-Kv-n2C"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYW-vm-IyK" userLabel="Control View">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
@@ -119,13 +123,12 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="zbB-5h-MZy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4bi-Uq-iqB"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zbB-5h-MZy" secondAttribute="bottom" id="ERb-RZ-EsX"/>
-                <constraint firstItem="zbB-5h-MZy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="YP8-QK-4VN"/>
+                <constraint firstItem="zbB-5h-MZy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QQ1-Mn-bSY"/>
+                <constraint firstItem="zbB-5h-MZy" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="fdQ-LR-jBV"/>
                 <constraint firstItem="UYW-vm-IyK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="paa-F1-hpp"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UYW-vm-IyK" secondAttribute="trailing" id="tpV-AU-YVv"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zbB-5h-MZy" secondAttribute="trailing" id="xlK-ia-df0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="UYW-vm-IyK" secondAttribute="bottom" id="yCX-c5-vAb"/>
+                <constraint firstItem="zbB-5h-MZy" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zDN-kH-q8E"/>
                 <constraint firstItem="UYW-vm-IyK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="zld-sb-uFd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

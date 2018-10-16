@@ -11,6 +11,11 @@ import AVFoundation
 import FontAwesome
 
 class SimplePlayerView: UIView {
+    @IBOutlet private weak var playerTapGesterRecognizer: UITapGestureRecognizer! {
+        didSet {
+            playerTapGesterRecognizer.view?.backgroundColor = .darkGray
+        }
+    }
     @IBOutlet private weak var playerView: UIView!
     @IBOutlet private weak var controlView: UIView!
     @IBOutlet private weak var closeButton: UIButton! {
@@ -48,6 +53,9 @@ class SimplePlayerView: UIView {
         return Double(0.5 * self.seekProgressSlider.maximumValue) / Double(self.seekProgressSlider.bounds.maxX)
     }
     private var player: AVPlayer?
+    private var playerLayer: AVPlayerLayer? {
+        return self.playerView.layer.sublayers?.first { $0 is AVPlayerLayer } as? AVPlayerLayer
+    }
     var video: Video? = nil {
         didSet {
             guard let url = URL(string: video?.videoUrl ?? "") else { return }
@@ -63,7 +71,7 @@ class SimplePlayerView: UIView {
     
     // MARK: Callbacks
     var closeCallback: (() -> Void)? = nil
-    var fullscreenCallback: (() -> CGRect?)? = nil // TODO: rename to expand ~
+    var fullscreenCallback: (() -> Void)? = nil // TODO: rename to expand ~
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -94,11 +102,8 @@ extension SimplePlayerView {
         }
     }
     
-    func updateLayoutForOrientation(_ fullScreenRect: CGRect? = nil) {
-        self.playerView.layer.frame = fullScreenRect ?? self.bounds
-        self.playerView.layer.sublayers?.forEach { subLayer in
-            subLayer.frame = fullScreenRect ?? self.bounds
-        }
+    func updateLayoutForOrientation(_ rerect: CGRect? = nil) {
+        
     }
     
     private func syncSeekSlider() {
@@ -148,11 +153,13 @@ extension SimplePlayerView {
     }
     
     @IBAction private func fullscreenButtonAction(_ sender: UIButton) {
-        let expandViewRect = self.fullscreenCallback?()
-        // Update view layout
-        self.controlView.frame = expandViewRect ?? self.frame
-        // Update layer layout
-        self.updateLayoutForOrientation(expandViewRect)
+        self.fullscreenCallback?()
+        DispatchQueue.main.async {
+            // Update views layouer
+            
+            // Update layers layout
+            self.playerLayer?.frame = self.playerView.bounds
+        }
     }
     
     @IBAction private func playButtonAction(_ sender: UIButton) {
@@ -175,7 +182,7 @@ extension SimplePlayerView {
         let seconds = Double(sender.value) * duration
         let targetTime: CMTime = CMTime(seconds: seconds, preferredTimescale: Int32(NSEC_PER_SEC))
         player.seek(to: targetTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
-        
+
         // Case where playback has ended
         if !player.isPlaying {
             player.play()

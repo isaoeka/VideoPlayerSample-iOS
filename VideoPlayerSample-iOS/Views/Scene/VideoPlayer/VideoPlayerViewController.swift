@@ -19,13 +19,18 @@ enum VideoPlayerStyle {
 }
 
 class VideoPlayerViewController: UIViewController {
-    @IBOutlet weak var playerView: SimplePlayerView!
+    @IBOutlet weak var simplePlayerView: SimplePlayerView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var presenterNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-
+    @IBOutlet var simplePlayerViewRatio: NSLayoutConstraint!
+    @IBOutlet var simplePlayerViewBottomAnker: NSLayoutConstraint!
+    
     private var presenter: VideoPlayerPresenter!
-    var playerStyle = VideoPlayerStyle.standard
+    private var playerStyle = VideoPlayerStyle.standard
+    private var playerOrientation: UIDeviceOrientation {
+        return UIDevice.current.orientation
+    }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return [.portrait, .landscape]
@@ -46,7 +51,7 @@ class VideoPlayerViewController: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
-        self.playerView.updateLayoutForOrientation()
+        self.simplePlayerView.updateLayoutForOrientation()
         super.viewDidLayoutSubviews()
     }
 }
@@ -58,24 +63,35 @@ extension VideoPlayerViewController {
     
     private func initializeView() {
         let video = self.presenter.getVideo()
-        self.playerView.video = video
+        self.simplePlayerView.video = video
         self.titleLabel.text = video.title ?? ""
         self.presenterNameLabel.text = video.presenterName ?? ""
         self.descriptionLabel.text = video.description ?? ""
         
-        self.playerView.closeCallback = {
+        // cakbacks..
+        self.simplePlayerView.closeCallback = {
             self.dismissViewController()
         }
-        self.playerView.fullscreenCallback = {
-            self.playerStyle = .fullscreen
-            // update status bar
-            UIView.animate(withDuration: 0.3) {
-                self.setNeedsStatusBarAppearanceUpdate()
-            }
-            return self.fullscreenRect()
+        self.simplePlayerView.fullscreenCallback = {
+            self.playerStyle = self.simplePlayerViewRatio.isActive
+                            ? .fullscreen : .standard
+            self.setNeedsStatusBarAppearanceUpdate()
+            self.changePlayerStyle()
         }
     }
     
+    private func changePlayerStyle() {
+        // Attention in order to change constraint.
+        switch self.playerStyle {
+        case .standard:
+            self.simplePlayerViewBottomAnker.isActive = false
+            self.simplePlayerViewRatio.isActive = true
+        case .fullscreen:
+            self.simplePlayerViewRatio.isActive = false
+            self.simplePlayerViewBottomAnker.isActive = true
+        }
+    }
+
     private func fullscreenRect() -> CGRect {
         let screenBounds = UIScreen.main.bounds
         switch self.playerStyle {
