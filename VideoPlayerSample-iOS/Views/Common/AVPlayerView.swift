@@ -13,15 +13,19 @@ final class AVPlayerView: UIView {
     override class var layerClass: AnyClass {
         return AVPlayerLayer.self
     }
-    
+
     var player: AVPlayer? {
-        set {
-            let layer: AVPlayerLayer = self.layer as! AVPlayerLayer
-            layer.player = player
+        return self.playerLayer?.player
+    }
+    
+    var playerLayer: AVPlayerLayer? {
+        return self.layer.sublayers?.first { $0 is AVPlayerLayer } as? AVPlayerLayer
+    }
+    
+    func setPlayerLayer(_ newLayer: AVPlayerLayer) {
+        if let oldLayer = self.playerLayer {
+            oldLayer.removeFromSuperlayer()
         }
-        get {
-            let layer: AVPlayerLayer = self.layer as! AVPlayerLayer
-            return layer.player
-        }
+        self.layer.addSublayer(newLayer)
     }
 }

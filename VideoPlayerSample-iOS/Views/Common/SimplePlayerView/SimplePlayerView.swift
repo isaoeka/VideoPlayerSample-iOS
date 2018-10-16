@@ -12,7 +12,7 @@ import FontAwesome
 
 class SimplePlayerView: UIView {
     @IBOutlet private weak var playerTapGesterRecognizer: UITapGestureRecognizer!
-    @IBOutlet private weak var playerView: UIView!
+    @IBOutlet private weak var playerView: AVPlayerView!
     @IBOutlet private weak var controlView: UIView!
     @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var fullScreenButton: UIButton!
@@ -24,18 +24,13 @@ class SimplePlayerView: UIView {
     private var interval: Double {
         return Double(0.5 * self.seekProgressSlider.maximumValue) / Double(self.seekProgressSlider.bounds.maxX)
     }
-    private var player: AVPlayer?
-    private var playerLayer: AVPlayerLayer? {
-        return self.playerView.layer.sublayers?.first { $0 is AVPlayerLayer } as? AVPlayerLayer
-    }
     var video: Video? = nil {
         didSet {
             guard let url = URL(string: video?.videoUrl ?? "") else { return }
-            self.player = AVPlayer(url: url)
-            self.playerView.layer.addSublayer(AVPlayerLayer(player: self.player).apply {
+            self.playerView.setPlayerLayer(AVPlayerLayer(player: AVPlayer(url: url)).apply {
                 $0.frame = self.bounds
             })
-            self.player?.play()
+            self.playerView.player?.play()
             self.syncSeekSlider()
             self.durationLabel.msec = video?.videoDuration ?? 0
         }
@@ -56,8 +51,7 @@ class SimplePlayerView: UIView {
     }
     
     deinit {
-        self.player?.pause()
-        // TODO: remove time ovserver
+        self.playerView.player?.pause()
     }
     
     override func layoutSubviews() {
@@ -109,7 +103,7 @@ extension SimplePlayerView {
     func updateLayoutForViewState() {
         DispatchQueue.main.async {
             // Update layers layout
-            self.playerLayer?.frame = self.playerView.bounds
+            self.playerView.playerLayer?.frame = self.playerView.bounds
             if UIDevice.current.orientation.isLandscape {
                 self.fullScreenButton.isEnabled = false
             } else {
@@ -120,13 +114,13 @@ extension SimplePlayerView {
     
     private func syncSeekSlider() {
         let time: CMTime = CMTimeMakeWithSeconds(self.interval, preferredTimescale: Int32(NSEC_PER_SEC))
-        self.player?.addPeriodicTimeObserver(forInterval: time, queue: nil, using: { [weak self] time in
+        self.playerView.player?.addPeriodicTimeObserver(forInterval: time, queue: nil, using: { [weak self] time in
             self?.updateSeekProgressSlider(time)
         })
     }
     
     private func updateSeekProgressSlider(_ time: CMTime) {
-        guard let player = self.player,
+        guard let player = self.playerView.player,
             let duration = player.currentItem?.duration.seconds else { return }
         self.seekProgressSlider.value = Float(time.seconds / duration)
         self.currentTimeLabel.sec = Int(time.seconds)
@@ -160,7 +154,7 @@ extension SimplePlayerView {
     }
     
     @IBAction private func closeButtonAction(_ sender: UIButton) {
-        self.player?.pause()
+        self.playerView.player?.pause()
         self.closeCallback?()
     }
     
@@ -170,7 +164,7 @@ extension SimplePlayerView {
     }
     
     @IBAction private func playButtonAction(_ sender: UIButton) {
-        guard let player = self.player else { return }
+        guard let player = self.playerView.player else { return }
         if player.isPlaying {
             let image = self.fontImage(name: .play, size: self.playButton.frame.size)
             self.playButton.setImage(image, for: .normal)
@@ -183,7 +177,7 @@ extension SimplePlayerView {
     }
 
     @IBAction private func seekProgressChanged(_ sender: UISlider) {
-        guard let player = self.player,
+        guard let player = self.playerView.player,
             let duration = player.currentItem?.duration.seconds else { return }
 
         let seconds = Double(sender.value) * duration
