@@ -3,6 +3,9 @@ The video player sample for iOS App.
 
 ## Usage
 
+Please specify a URL [here](https://github.com/isaoeka/VideoPlayerSample-iOS/blob/master/VideoPlayerSample-iOS/Common/AppConst.swift)
+
+Next,
 ```
 $ make install
 ```
