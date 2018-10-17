@@ -11,6 +11,10 @@ import AlamofireObjectMapper
 
 struct VideoAPI {
     static func getList(completion: @escaping ([Video]) -> Void) {
+        guard !AppConst.ApiUrl.videoList.rawValue.isEmpty else {
+            assertionFailure("Please specify a url")
+            return
+        }
         Alamofire.request(AppConst.ApiUrl.videoList.rawValue).responseArray { (response: DataResponse<[Video]>) in
             let videoList = response.result.value ?? []
             completion(videoList)
